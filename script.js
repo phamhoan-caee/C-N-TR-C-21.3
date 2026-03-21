@@ -42,7 +42,7 @@ function startQuiz() {
     // Hiển thị câu đầu tiên
     showQuestion(0);
     
-      // Chạy đồng hồ
+    // Chạy đồng hồ
     startTimer();
 }
 
