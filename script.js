@@ -90,13 +90,25 @@ function showQuestion(index) {
 
 // --- 5. HÀM XỬ LÝ CHỌN ĐÁP ÁN ---
 function selectAnswer(element, qIndex, answer) {
-    // Lưu đáp án vào mảng
+    // THÊM: Nếu đã nộp bài thì không cho chọn hoặc đổi đáp án
+    if (isSubmitted) {
+        alert("Bài thi đã được nộp, bạn không thể thay đổi đáp án!");
+        return;
+    }
+
     const existingIndex = studentAnswers.findIndex(item => item.qIndex === qIndex);
     if (existingIndex !== -1) {
         studentAnswers[existingIndex].selectedAnswer = answer;
     } else {
         studentAnswers.push({ qIndex: qIndex, selectedAnswer: answer });
     }
+
+    const options = element.parentElement.querySelectorAll('.option-item');
+    options.forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+
+    updateGridStatus(qIndex);
+}
 
     // Cập nhật giao diện (màu xanh cho đáp án được chọn)
     const options = element.parentElement.querySelectorAll('.option-item');
@@ -131,7 +143,11 @@ function generateNavigationGrid() {
         item.classList.add('grid-item');
         item.id = `grid-item-${i}`;
         item.innerText = i + 1;
-        item.onclick = () => showQuestion(i);
+        item.onclick = () => {
+            // NẾU ĐÃ NỘP BÀI THÌ KHÔNG CHO CHUYỂN CÂU
+            if (isSubmitted) return; 
+            showQuestion(i);
+        };
         grid.appendChild(item);
     });
 }
@@ -176,21 +192,51 @@ function startTimer() {
 
 // --- 10. NỘP BÀI ---
 async function submitQuiz() {
-    // 1. Kiểm tra nếu đã nộp rồi thì không chạy lại (Ngăn bấm 2 lần)
     if (isSubmitted) return;
-
-    // 2. Xác nhận nộp bài
     if (!confirm("Bạn có chắc chắn muốn nộp bài?")) return;
 
-    // 3. Khóa trạng thái và dừng thời gian ngay lập tức
     isSubmitted = true; 
     clearInterval(timerInterval);
     
-    // 4. Ẩn nút nộp bài để tránh bấm nhiều lần
     const submitBtn = document.querySelector('.btn-submit');
-    if (submitBtn) {
-        submitBtn.style.display = 'none';
-    }
+    if (submitBtn) { submitBtn.style.display = 'none'; }
+
+    let score = 0;
+    studentAnswers.forEach(ans => {
+        const originalQuestion = selectedQuestions[ans.qIndex];
+        if (ans.selectedAnswer === originalQuestion.answer) { score++; }
+    });
+
+    const status = score >= 25 ? "ĐẠT" : "KHÔNG ĐẠT";
+    
+    // Hiển thị kết quả cho học viên
+    alert(`Kết quả của bạn: ${score}/30 câu - Trạng thái: ${status}`);
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxU1raU7yZN8sDs5uh6_cfqeHLX1dn4OnlvcL91D10ByKgaxdKiqnh7GFHhvNn0Lfjz/exec';
+    const payload = {
+        name: document.getElementById('studentName').value,
+        id: document.getElementById('studentID').value,
+        score: score + "/30",
+        status: status
+    };
+
+    // Gửi dữ liệu và quay về màn hình đối với người dùng
+    fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(() => {
+        alert("Dữ liệu đã được lưu thành công. Hệ thống sẽ quay về màn hình bắt đầu.");
+        location.reload(); // THÊM DÒNG NÀY: Làm mới trang để về màn hình đăng nhập
+    })
+    .catch(error => {
+        console.error('Lỗi gửi Sheets:', error);
+        alert("Có lỗi khi gửi dữ liệu, nhưng bài thi đã kết thúc.");
+        location.reload(); // Vẫn quay về màn hình đầu dù có lỗi gửi tin
+    });
+}
 
     // 5. Tính điểm
     let score = 0;
