@@ -7,7 +7,7 @@ let studentAnswers = [];    /* Mảng lưu đáp án: [{qIndex:0, selectedAnswer
 let currentQuestionIndex = 0; // Câu hỏi đang hiển thị
 let timeLeft = 1200; // 20 phút (1200 giây)
 let timerInterval;
-let isSubmitted = false;
+let isSubmitted = false;// Mặc định là chưa nộp bài (chưa khóa)
 // --- 3. HÀM BẮT ĐẦU THI ---
 function startQuiz() {
     const name = document.getElementById('studentName').value.trim();
@@ -176,13 +176,13 @@ function startTimer() {
 
 // --- 10. NỘP BÀI ---
 async function submitQuiz() {
-    // 1. Nếu đã nộp rồi thì không cho chạy lại
+    // 1. Kiểm tra nếu đã nộp rồi thì không chạy lại (Ngăn bấm 2 lần)
     if (isSubmitted) return;
 
     // 2. Xác nhận nộp bài
     if (!confirm("Bạn có chắc chắn muốn nộp bài?")) return;
 
-    // 3. Khóa trạng thái ngay lập tức
+    // 3. Khóa trạng thái và dừng thời gian ngay lập tức
     isSubmitted = true; 
     clearInterval(timerInterval);
     
