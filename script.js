@@ -42,7 +42,7 @@ function startQuiz() {
     // Hiển thị câu đầu tiên
     showQuestion(0);
     
-    // Chạy đồng hồ
+      // Chạy đồng hồ
     startTimer();
 }
 
@@ -193,8 +193,7 @@ async function submitQuiz() {
 
    // --- GỬI DỮ LIỆU VỀ GOOGLE SHEETS ---
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxU1raU7yZN8sDs5uh6_cfqeHLX1dn4OnlvcL91D10ByKgaxdKiqnh7GFHhvNn0Lfjz/exec';
-    
-    const payload = {
+   const payload = {
         name: document.getElementById('studentName').value, // Gửi cho cột HOTEN
         id: document.getElementById('studentID').value,     // Gửi cho cột KHOA
         score: score + "/30",                               // Gửi cho cột DIEM
