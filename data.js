@@ -1,842 +1,1214 @@
 const questionBank = [
   {
     "id": 1,
-    "question": "Theo định nghĩa, thiết bị nào sau đây được gọi là 'Cầu trục'?",
+    "question": "Khi nâng vật nặng lên khỏi mặt đất từ 10-20cm, người vận hành phải làm gì?",
     "options": [
-      "Thiết bị nâng bằng sức người để di chuyển vật nặng.",
-      "Thiết bị cơ khí thiết kế để nâng tải và mang tải đi ngang.",
-      "Thiết bị chỉ có khả năng nâng hạ tại chỗ.",
-      "Bất kỳ phương tiện nào có bánh xe tự hành trên đường."
+      "Nâng thật nhanh lên cao",
+      "Dừng lại kiểm tra độ ổn định và phanh",
+      "Xoay cần ngay lập tức",
+      "Hạ xuống và nghỉ"
     ],
-    "answer": "Thiết bị cơ khí thiết kế để nâng tải và mang tải đi ngang.",
-    "explain": "Cầu trục dùng động lực để nâng hạ và có khả năng di chuyển vật theo phương ngang."
+    "answer": "Dừng lại kiểm tra độ ổn định và phanh",
+    "explain": "Thử tải tĩnh tại chỗ để đảm bảo phanh và cáp chịu được lực thực tế."
   },
   {
     "id": 2,
-    "question": "Chuyển động 'Di chuyển ngang' (Traversing) là gì?",
+    "question": "Tín hiệu 'Dừng khẩn cấp' được thực hiện khi nào?",
     "options": [
-      "Chuyển động của dầm cầu chạy dọc nhà xưởng.",
-      "Chuyển động nâng vật lên cao.",
-      "Chuyển động của xe tời (Palăng) dọc theo dầm chính.",
-      "Chuyển động quay quanh một cột cố định."
+      "Khi thấy mỏi tay",
+      "Khi có bất kỳ nguy hiểm nào xảy ra",
+      "Khi hết giờ làm việc",
+      "Khi có người lạ đi qua"
     ],
-    "answer": "Chuyển động của xe tời (Palăng) dọc theo dầm chính.",
-    "explain": "Đây là chuyển động của bộ phận mang tải chạy qua lại trên dầm ngang của cầu trục."
+    "answer": "Khi có bất kỳ nguy hiểm nào xảy ra",
+    "explain": "Dừng mọi chuyển động để bảo vệ tính mạng và tài sản."
   },
   {
     "id": 3,
-    "question": "'Tải trọng định mức' (Rated Load) được hiểu là:",
+    "question": "Góc nghiêng của dây cáp khi nâng hàng so với phương thẳng đứng tốt nhất là bao nhiêu?",
     "options": [
-      "Tổng trọng lượng tối đa cấu trúc chịu được.",
-      "Trọng lượng tịnh tối đa treo trên móc sau khi trừ phụ kiện.",
-      "Tốc độ tối đa khi cầu trục mang tải.",
-      "Khoảng cách ngang giữa hai tâm ray di chuyển."
+      "0 độ (Thẳng đứng)",
+      "15 độ",
+      "30 độ",
+      "45 độ"
     ],
-    "answer": "Trọng lượng tịnh tối đa treo trên móc sau khi trừ phụ kiện.",
-    "explain": "Tải trọng định mức là trọng lượng vật thực tế được phép nâng sau khi trừ đi các thiết bị treo buộc."
+    "answer": "0 độ (Thẳng đứng)",
+    "explain": "Tránh lực quán tính ngang làm lắc vật nâng hoặc lật cần."
   },
   {
     "id": 4,
-    "question": "Khi 'Nhấc vật khỏi mặt đất', thao tác nào là đúng kỹ thuật?",
+    "question": "Khi vật nâng đang ở trên cao, người vận hành có được rời khỏi cabin không?",
     "options": [
-      "Nâng thật nhanh để tránh rung lắc.",
-      "Dừng lại khi tải vừa rời giá đỡ để kiểm tra ổn định.",
-      "Tiếp tục nâng lên cao mà không cần dừng.",
-      "Kéo vật sang một bên để kiểm tra độ căng cáp."
+      "Có, nếu đã khóa phanh",
+      "Tuyệt đối không được rời vị trí",
+      "Có, nếu xuống đi vệ sinh nhanh",
+      "Có, nếu có người trông hộ"
     ],
-    "answer": "Dừng lại khi tải vừa rời giá đỡ để kiểm tra ổn định.",
-    "explain": "Thử tải tĩnh ở độ cao thấp (10-20cm) giúp đảm bảo phanh và các dây buộc đều an toàn."
+    "answer": "Tuyệt đối không được rời vị trí",
+    "explain": "Luôn phải kiểm soát vật nâng để xử lý tình huống bất ngờ."
   },
   {
     "id": 5,
-    "question": "Thiết bị 'Công tắc hành trình' (Limit Switch) có tác dụng gì?",
+    "question": "Tại sao không được kéo lê vật nặng bằng cần trục?",
     "options": [
-      "Tăng tốc độ di chuyển của cầu trục.",
-      "Tự động ngắt nguồn điện khi các bộ phận di chuyển đến giới hạn cho phép.",
-      "Điều chỉnh độ căng của dây cáp thép.",
-      "Dùng để tắt máy khi kết thúc ca làm việc."
+      "Làm hỏng cỏ",
+      "Gây lực ngang cực lớn làm lật hoặc gãy cần",
+      "Làm vật bị trầy xước",
+      "Tốn nhiên liệu"
     ],
-    "answer": "Tự động ngắt nguồn điện khi các bộ phận di chuyển đến giới hạn cho phép.",
-    "explain": "Đây là thiết bị an toàn ngăn chặn va chạm khi vượt quá hành trình cho phép."
+    "answer": "Gây lực ngang cực lớn làm lật hoặc gãy cần",
+    "explain": "Cần trục được thiết kế để nâng thẳng đứng, không chịu được lực kéo ngang lớn."
   },
   {
     "id": 6,
-    "question": "Tại sao không được nâng vật khi dây cáp đang bị chéo?",
+    "question": "Tại sao không được kéo lê vật nặng bằng cần trục?",
     "options": [
-      "Vì làm dây cáp bị bẩn.",
-      "Gây lực ngang làm hỏng hướng dẫn cáp và có thể làm lật đổ thiết bị.",
-      "Vì làm động cơ chạy chậm lại.",
-      "Vì tốn điện năng hơn."
+      "Làm hỏng cỏ",
+      "Gây lực ngang cực lớn làm lật hoặc gãy cần",
+      "Làm vật bị trầy xước",
+      "Tốn nhiên liệu"
     ],
-    "answer": "Gây lực ngang làm hỏng hướng dẫn cáp và có thể làm lật đổ thiết bị.",
-    "explain": "Lực kéo ngang gây ứng suất không mong muốn lên kết cấu dầm và xe con."
+    "answer": "Gây lực ngang cực lớn làm lật hoặc gãy cần",
+    "explain": "Cần trục được thiết kế để nâng thẳng đứng, không chịu được lực kéo ngang lớn."
   },
   {
     "id": 7,
-    "question": "Khi di chuyển cầu trục không tải, móc cẩu phải được nâng lên độ cao bao nhiêu?",
+    "question": "Khi nâng vật nặng lên khỏi mặt đất từ 10-20cm, người vận hành phải làm gì?",
     "options": [
-      "Sát mặt đất để dễ quan sát.",
-      "Cao hơn các chướng ngại vật ít nhất 0,5m.",
-      "Nâng hết hành trình tối đa.",
-      "Tùy ý người vận hành."
+      "Nâng thật nhanh lên cao",
+      "Dừng lại kiểm tra độ ổn định và phanh",
+      "Xoay cần ngay lập tức",
+      "Hạ xuống và nghỉ"
     ],
-    "answer": "Cao hơn các chướng ngại vật ít nhất 0,5m.",
-    "explain": "Đảm bảo khoảng cách an toàn để tránh va chạm với thiết bị hoặc con người bên dưới."
+    "answer": "Dừng lại kiểm tra độ ổn định và phanh",
+    "explain": "Thử tải tĩnh tại chỗ để đảm bảo phanh và cáp chịu được lực thực tế."
   },
   {
     "id": 8,
-    "question": "Người dưới mặt đất ra hiệu cho người lái cầu trục bằng cách nào?",
+    "question": "Tín hiệu 'Dừng khẩn cấp' được thực hiện khi nào?",
     "options": [
-      "Hét thật to.",
-      "Sử dụng hệ thống tín hiệu tay hoặc cờ/còi quy định.",
-      "Ném vật nhẹ lên cabin.",
-      "Gọi điện thoại di động."
+      "Khi thấy mỏi tay",
+      "Khi có bất kỳ nguy hiểm nào xảy ra",
+      "Khi hết giờ làm việc",
+      "Khi có người lạ đi qua"
     ],
-    "answer": "Sử dụng hệ thống tín hiệu tay hoặc cờ/còi quy định.",
-    "explain": "Tín hiệu chuẩn giúp người lái hiểu chính xác yêu cầu dù môi trường nhà xưởng có tiếng ồn lớn."
+    "answer": "Khi có bất kỳ nguy hiểm nào xảy ra",
+    "explain": "Dừng mọi chuyển động để bảo vệ tính mạng và tài sản."
   },
   {
     "id": 9,
-    "question": "Ai là người được phép ra lệnh 'Dừng khẩn cấp'?",
+    "question": "Góc nghiêng của dây cáp khi nâng hàng so với phương thẳng đứng tốt nhất là bao nhiêu?",
     "options": [
-      "Chỉ người tổ trưởng.",
-      "Chỉ người phụ trách an toàn.",
-      "Bất kỳ ai nhìn thấy nguy cơ mất an toàn.",
-      "Chỉ người điều khiển."
+      "0 độ (Thẳng đứng)",
+      "15 độ",
+      "30 độ",
+      "45 độ"
     ],
-    "answer": "Bất kỳ ai nhìn thấy nguy cơ mất an toàn.",
-    "explain": "Đây là quy định an toàn tối cao để ngăn chặn tai nạn kịp thời."
+    "answer": "0 độ (Thẳng đứng)",
+    "explain": "Tránh lực quán tính ngang làm lắc vật nâng hoặc lật cần."
   },
   {
     "id": 10,
-    "question": "Trước khi nâng một vật nặng, người vận hành phải làm gì?",
+    "question": "Khi vật nâng đang ở trên cao, người vận hành có được rời khỏi cabin không?",
     "options": [
-      "Nhấn còi báo hiệu.",
-      "Kiểm tra tải trọng vật nâng xem có phù hợp với sức nâng máy không.",
-      "Kiểm tra tình trạng dây treo buộc.",
-      "Tất cả các ý trên đều đúng."
+      "Có, nếu đã khóa phanh",
+      "Tuyệt đối không được rời vị trí",
+      "Có, nếu xuống đi vệ sinh nhanh",
+      "Có, nếu có người trông hộ"
     ],
-    "answer": "Tất cả các ý trên đều đúng.",
-    "explain": "Quy trình kiểm tra toàn diện trước khi nâng là bắt buộc để đảm bảo an toàn."
+    "answer": "Tuyệt đối không được rời vị trí",
+    "explain": "Luôn phải kiểm soát vật nâng để xử lý tình huống bất ngờ."
   },
   {
     "id": 11,
-    "question": "Cấm dùng cầu trục để làm việc gì sau đây?",
+    "question": "Tại sao không được kéo lê vật nặng bằng cần trục?",
     "options": [
-      "Nâng vật thẳng đứng.",
-      "Kéo lê vật nặng trên mặt đất.",
-      "Di chuyển vật từ thấp lên cao.",
-      "Xoay vật nặng trên không."
+      "Làm hỏng cỏ",
+      "Gây lực ngang cực lớn làm lật hoặc gãy cần",
+      "Làm vật bị trầy xước",
+      "Tốn nhiên liệu"
     ],
-    "answer": "Kéo lê vật nặng trên mặt đất.",
-    "explain": "Cầu trục chỉ thiết kế để nâng thẳng đứng; kéo lê gây lực ngang phá hủy kết cấu dầm."
+    "answer": "Gây lực ngang cực lớn làm lật hoặc gãy cần",
+    "explain": "Cần trục được thiết kế để nâng thẳng đứng, không chịu được lực kéo ngang lớn."
   },
   {
     "id": 12,
-    "question": "Trong khi cầu trục đang nâng tải, người móc cáp phải làm gì?",
+    "question": "Khi nâng vật nặng, tâm của móc cẩu phải ở vị trí nào?",
     "options": [
-      "Đứng ngay dưới vật nâng để giữ.",
-      "Di chuyển ra khỏi vùng nguy hiểm (ngoài bán kính rơi của vật).",
-      "Vịn tay vào dây cáp để giữ thăng bằng.",
-      "Đi theo sát vật nâng."
+      "Lệch về bên trái vật",
+      "Lệch về bên phải vật",
+      "Thẳng đứng với trọng tâm vật",
+      "Ở bất kỳ vị trí nào"
     ],
-    "answer": "Di chuyển ra khỏi vùng nguy hiểm (ngoài bán kính rơi của vật).",
-    "explain": "Phòng trường hợp đứt cáp hoặc tuột dây, người lao động phải ở khoảng cách an toàn."
+    "answer": "Thẳng đứng với trọng tâm vật",
+    "explain": "Tránh vật bị lắc lư hoặc kéo lê khi rời mặt đất."
   },
   {
     "id": 13,
-    "question": "Khi nâng vật có cạnh sắc nhọn, ta phải làm gì để bảo vệ dây cáp/sling?",
+    "question": "Số vòng cáp tối thiểu còn lại trên tang cuốn khi hạ móc xuống thấp nhất là bao nhiêu?",
     "options": [
-      "Dùng dây cáp to hơn.",
-      "Dùng đệm lót (gỗ, cao su, ống thép xẻ...) tại các góc tiếp xúc.",
-      "Nâng thật chậm.",
-      "Bôi mỡ vào cạnh sắc."
+      "1 vòng",
+      "ít nhất 2 đến 3 vòng",
+      "Không cần vòng nào",
+      "10 vòng"
     ],
-    "answer": "Dùng đệm lót (gỗ, cao su, ống thép xẻ...) tại các góc tiếp xúc.",
-    "explain": "Đệm lót ngăn cạnh sắc cắt đứt sợi cáp hoặc làm biến dạng vĩnh viễn dây treo."
+    "answer": "ít nhất 2 đến 3 vòng",
+    "explain": "Đảm bảo đầu cáp không bị tuột khỏi thiết bị kẹp trên tang."
   },
   {
     "id": 14,
-    "question": "Tốc độ di chuyển của cầu trục được kiểm soát bằng gì?",
+    "question": "Tại sao không được nâng vật khi dây cáp bị xoắn hoặc nút thắt?",
     "options": [
-      "Tay lấy điện (Master controller) hoặc biến tần.",
-      "Bằng cách kéo phanh tay.",
-      "Tự động theo trọng lượng vật.",
-      "Dùng sức người đẩy."
+      "Làm bẩn cáp",
+      "Gây tiếng ồn",
+      "Làm cần chạy chậm",
+      "Làm giảm khả năng chịu lực và dễ gây đứt cáp đột ngột"
     ],
-    "answer": "Tay lấy điện (Master controller) hoặc biến tần.",
-    "explain": "Hệ thống điều khiển điện giúp thay đổi tốc độ mượt mà, tránh rung lắc vật nâng."
+    "answer": "Làm giảm khả năng chịu lực và dễ gây đứt cáp đột ngột",
+    "explain": "Khuyết tật cáp làm tập trung ứng suất tại một điểm gây nguy hiểm."
   },
   {
     "id": 15,
-    "question": "Khi thấy phanh nâng hạ có dấu hiệu không ăn (trôi tải), người lái phải làm gì?",
+    "question": "Khi di chuyển cần trục không tải, móc cẩu phải để ở độ cao nào?",
     "options": [
-      "Tiếp tục làm việc bình thường.",
-      "Bấm còi và hạ vật xuống vị trí an toàn nhất gần đó, sau đó ngừng máy báo sửa chữa.",
-      "Nhảy ra khỏi cabin.",
-      "Dùng tay giữ tang trống cáp."
+      "Sát mặt đất",
+      "Tùy ý người lái",
+      "Hạ thấp hết mức",
+      "Cao hơn đầu người và chốt chặn an toàn"
     ],
-    "answer": "Bấm còi và hạ vật xuống vị trí an toàn nhất gần đó, sau đó ngừng máy báo sửa chữa.",
-    "explain": "Xử lý bình tĩnh để đưa vật về mặt đất an toàn trước khi hỏng hóc nặng hơn."
+    "answer": "Cao hơn đầu người và chốt chặn an toàn",
+    "explain": "Tránh va chạm móc vào người hoặc chướng ngại vật dưới đất."
   },
   {
     "id": 16,
-    "question": "Khoảng cách an toàn tối thiểu từ cầu trục đến đường dây điện cao thế là bao nhiêu?",
+    "question": "'Tầm với' của cần trục được tính từ đâu?",
     "options": [
-      "0,5m.",
-      "1,0m.",
-      "Theo quy định an toàn điện (thường từ 2m đến 6m tùy điện áp).",
-      "Không cần khoảng cách nếu có vỏ bọc."
+      "Từ cabin đến vật",
+      "Chiều dài của cần",
+      "Từ bánh xe đến vật",
+      "Từ tâm quay của cần trục đến tâm móc cẩu"
     ],
-    "answer": "Theo quy định an toàn điện (thường từ 2m đến 6m tùy điện áp).",
-    "explain": "Phòng tránh hiện tượng phóng điện cao áp gây chết người và cháy nổ thiết bị."
+    "answer": "Từ tâm quay của cần trục đến tâm móc cẩu",
+    "explain": "Tầm với tỉ lệ nghịch với tải trọng nâng (tầm với càng xa, tải càng giảm)."
   },
   {
     "id": 17,
-    "question": "Bộ phận nào có tác dụng giữ vật nâng lơ lửng trên không?",
+    "question": "Khi nâng hàng trong điều kiện thiếu ánh sáng hoặc ban đêm phải đảm bảo gì?",
     "options": [
-      "Động cơ nâng.",
-      "Hệ thống phanh điện từ hoặc phanh thủy lực.",
-      "Dây cáp thép.",
-      "Móc cẩu."
+      "Chỉ cần đèn cabin",
+      "Không được làm việc",
+      "Vừa làm vừa đoán",
+      "Hệ thống chiếu sáng đủ rõ tại khu vực làm việc và đường đi"
     ],
-    "answer": "Hệ thống phanh điện từ hoặc phanh thủy lực.",
-    "explain": "Phanh luôn ở trạng thái đóng (thường đóng), chỉ mở khi có điện cấp cho động cơ chạy."
+    "answer": "Hệ thống chiếu sáng đủ rõ tại khu vực làm việc và đường đi",
+    "explain": "Đảm bảo tầm nhìn để người lái và người đánh tín hiệu phối hợp chính xác."
   },
   {
     "id": 18,
-    "question": "Tại sao không được phép vừa nâng vật vừa di chuyển dọc/ngang với tốc độ cao?",
+    "question": "Khi phát hiện phanh của cơ cấu nâng bị hỏng lúc đang có hàng trên móc, bạn xử lý thế nào?",
     "options": [
-      "Tốn điện.",
-      "Gây ra lực quán tính lớn làm vật nâng chao đảo mạnh, khó kiểm soát.",
-      "Làm mòn bánh xe.",
-      "Động cơ bị nóng."
+      "Bỏ chạy",
+      "Nâng hàng lên cao nữa",
+      "Cứ để hàng treo đó",
+      "Bấm còi báo động và tìm cách hạ hàng xuống vùng an toàn nhất"
     ],
-    "answer": "Gây ra lực quán tính lớn làm vật nâng chao đảo mạnh, khó kiểm soát.",
-    "explain": "Dao động lớn có thể làm vật va đập vào kết cấu nhà xưởng hoặc tuột dây treo."
+    "answer": "Bấm còi báo động và tìm cách hạ hàng xuống vùng an toàn nhất",
+    "explain": "Phải tìm cách hạ hàng để giải phóng tải trọng, tránh rơi tự do."
   },
   {
     "id": 19,
-    "question": "Mục đích của việc bôi mỡ định kỳ vào cáp thép là gì?",
+    "question": "Việc sử dụng hai cần trục để cùng nâng một vật nặng (nâng kép) yêu cầu gì?",
     "options": [
-      "Để cáp nhìn bóng đẹp.",
-      "Giảm ma sát giữa các sợi thép và chống gỉ sét lõi cáp.",
-      "Làm cáp nặng hơn để nâng chắc chắn.",
-      "Để người móc cáp dễ cầm."
+      "Không cần sơ đồ",
+      "Phải có phương án kỹ thuật và người chỉ huy thống nhất",
+      "Ai nhanh người đó nâng",
+      "Cần trục nào to hơn thì nâng chính"
     ],
-    "answer": "Giảm ma sát giữa các sợi thép và chống gỉ sét lõi cáp.",
-    "explain": "Cáp thép gồm nhiều sợi nhỏ, việc bôi trơn giúp chúng trượt lên nhau linh hoạt và tăng tuổi thọ."
+    "answer": "Phải có phương án kỹ thuật và người chỉ huy thống nhất",
+    "explain": "Đảm bảo phân bổ tải trọng đều, tránh một xe bị quá tải đột ngột."
   },
   {
     "id": 20,
-    "question": "Khi nâng vật nặng có trọng lượng bằng 100% sức nâng của cầu trục, cần lưu ý gì?",
+    "question": "Thiết bị nào giúp ngăn móc cẩu va chạm vào đầu cần (boom head)?",
     "options": [
-      "Không nên nâng.",
-      "Chỉ nâng khi thật cần thiết và phải thử phanh kỹ ở độ cao thấp.",
-      "Nâng thật nhanh lên cao.",
-      "Yêu cầu mọi người vào giúp giữ vật."
+      "Phanh",
+      "Công tắc hành trình nâng (Anti-two block)",
+      "Gương",
+      "Đồng hồ áp suất"
     ],
-    "answer": "Chỉ nâng khi thật cần thiết và phải thử phanh kỹ ở độ cao thấp.",
-    "explain": "Làm việc tại giới hạn định mức đòi hỏi sự cẩn trọng tối đa về tình trạng thiết bị."
+    "answer": "Công tắc hành trình nâng (Anti-two block)",
+    "explain": "Tự động ngắt khi móc lên quá cao, tránh đứt cáp rơi móc."
   },
   {
     "id": 21,
-    "question": "Khi đang nâng tải mà bộ phận hạn chế hành trình nâng (Limit switch) bị hỏng, người lái phải làm gì?",
+    "question": "Trước khi hạ chân chống xuống nền đường nhựa vào mùa hè, cần lưu ý gì?",
     "options": [
-      "Tiếp tục làm việc và cẩn thận không nâng quá cao.",
-      "Dừng máy ngay lập tức và báo cáo thợ sửa chữa.",
-      "Dùng tay đẩy công tắc để kiểm tra lại.",
-      "Tháo bỏ bộ phận đó để làm việc cho nhanh."
+      "Hạ trực tiếp",
+      "Phải có tấm lót bản rộng vì nhựa đường dễ bị lún do nhiệt",
+      "Chỉ cần hạ nhanh",
+      "Không cần lưu ý"
     ],
-    "answer": "Dừng máy ngay lập tức và báo cáo thợ sửa chữa.",
-    "explain": "Làm việc khi thiếu thiết bị an toàn là vi phạm nghiêm trọng quy định vận hành thiết bị nâng."
+    "answer": "Phải có tấm lót bản rộng vì nhựa đường dễ bị lún do nhiệt",
+    "explain": "Nhiệt độ cao làm nhựa đường mềm, dễ gây lún chân làm lật xe."
   },
   {
     "id": 22,
-    "question": "Tại sao phải kiểm tra tình trạng tiếp đất (nối đất) của vỏ máy cầu trục?",
+    "question": "Đối trọng (Counterweight) của cần trục có tác dụng gì?",
     "options": [
-      "Để máy chạy mạnh hơn.",
-      "Để chống sét đánh.",
-      "Đảm bảo an toàn, tránh điện giật khi có sự cố rò rỉ điện ra vỏ máy.",
-      "Để vỏ máy không bị gỉ sét."
+      "Cho đẹp xe",
+      "Tạo sự cân bằng, chống lật khi nâng hàng",
+      "Để chở thêm người",
+      "Làm xe chạy nhanh"
     ],
-    "answer": "Đảm bảo an toàn, tránh điện giật khi có sự cố rò rỉ điện ra vỏ máy.",
-    "explain": "Tiếp đất an toàn giúp triệt tiêu dòng điện rò, bảo vệ tính mạng người vận hành."
+    "answer": "Tạo sự cân bằng, chống lật khi nâng hàng",
+    "explain": "Giúp dịch chuyển trọng tâm tổng thể về phía sau để đối trọng với vật nâng."
   },
   {
     "id": 23,
-    "question": "Khi dùng hai cầu trục cùng nâng một vật nặng (Nâng kép), cần lưu ý điều gì?",
+    "question": "Khi di chuyển cần trục bánh xích trên địa hình dốc, hướng cần nên để thế nào?",
     "options": [
-      "Chỉ cần hai người lái hiểu ý nhau.",
-      "Phải có phương án kỹ thuật, người chỉ huy thống nhất và tải trọng không quá 80% tổng sức nâng.",
-      "Nâng càng nhanh càng tốt để tránh lệch.",
-      "Không bao giờ được phép nâng kép."
+      "Hướng xuống dốc",
+      "Hướng lên phía đỉnh dốc",
+      "Xoay ngang",
+      "Tùy ý"
     ],
-    "answer": "Phải có phương án kỹ thuật, người chỉ huy thống nhất và tải trọng không quá 80% tổng sức nâng.",
-    "explain": "Nâng kép là thao tác phức tạp, đòi hỏi sự phối hợp tuyệt đối và hệ số an toàn cao."
+    "answer": "Hướng lên phía đỉnh dốc",
+    "explain": "Giúp trọng tâm xe ổn định hơn, tránh lật ngửa về phía sau."
   },
   {
     "id": 24,
-    "question": "Âm hiệu 'Một tiếng còi ngắn' khi chuẩn bị vận hành có ý nghĩa gì?",
+    "question": "Khi buộc dây cáp vào vật nâng có cạnh sắc nhọn, phải làm gì?",
     "options": [
-      "Chào mọi người.",
-      "Báo hiệu bắt đầu di chuyển hoặc nâng tải để mọi người chú ý.",
-      "Báo hiệu máy bị hỏng.",
-      "Yêu cầu thợ móc cáp lại gần."
+      "Buộc trực tiếp",
+      "Phải có đệm lót (gỗ, cao su, ống thép xẻ) tại cạnh sắc",
+      "Dùng dây cáp to hơn",
+      "Không cần làm gì"
     ],
-    "answer": "Báo hiệu bắt đầu di chuyển hoặc nâng tải để mọi người chú ý.",
-    "explain": "Cảnh báo bằng âm thanh giúp người xung quanh nhận biết vùng nguy hiểm sắp có chuyển động."
+    "answer": "Phải có đệm lót (gỗ, cao su, ống thép xẻ) tại cạnh sắc",
+    "explain": "Tránh cạnh sắc cắt đứt hoặc làm biến dạng các sợi cáp."
   },
   {
     "id": 25,
-    "question": "Khi di chuyển tải qua đầu người khác, người lái phải làm gì?",
+    "question": "Bộ phận nào của cần trục dùng để thay đổi độ dài của cần (với cần telescop)?",
     "options": [
-      "Bấm còi liên tục.",
-      "Tuyệt đối không được di chuyển tải qua đầu người; phải yêu cầu họ tránh đi.",
-      "Nâng thật cao để người đó không chạm tới.",
-      "Di chuyển thật chậm."
+      "Xy lanh nâng cần",
+      "Xy lanh thò thụt (Telescopic cylinder)",
+      "Động cơ quay toa",
+      "Cáp nâng hàng"
     ],
-    "answer": "Tuyệt đối không được di chuyển tải qua đầu người; phải yêu cầu họ tránh đi.",
-    "explain": "Đây là quy tắc vàng trong an toàn thiết bị nâng để tránh tai nạn chết người do rơi tải."
+    "answer": "Xy lanh thò thụt (Telescopic cylinder)",
+    "explain": "Dùng áp lực thủy lực để đẩy các đoạn cần ra hoặc thu vào."
   },
   {
     "id": 26,
-    "question": "Đối với cáp thép, dấu hiệu nào sau đây yêu cầu phải loại bỏ dây ngay lập tức?",
+    "question": "Ký hiệu bàn tay 'Ngón cái hướng lên trên' của người đánh tín hiệu nghĩa là gì?",
     "options": [
-      "Dây bị khô mỡ bôi trơn.",
-      "Dây có từ 1 đến 2 sợi thép nhỏ bị đứt.",
-      "Dây bị xoắn nút (kink), gập gãy hoặc biến dạng lõi.",
-      "Dây có vết bẩn do bùn đất."
+      "Dừng lại",
+      "Nâng cần (Nâng góc nghiêng của cần)",
+      "Hạ hàng",
+      "Đi lên"
     ],
-    "answer": "Dây bị xoắn nút (kink), gập gãy hoặc biến dạng lõi.",
-    "explain": "Biến dạng cấu trúc làm giảm sức bền của cáp đột ngột, rất dễ gây đứt khi chịu tải."
+    "answer": "Nâng cần (Nâng góc nghiêng của cần)",
+    "explain": "Đây là tín hiệu chuẩn để yêu cầu người lái nâng góc cần."
   },
   {
     "id": 27,
-    "question": "Tiêu chuẩn loại bỏ xích tải dựa trên độ giãn dài là bao nhiêu?",
+    "question": "Khi nâng hàng qua đầu người khác, người vận hành phải làm gì?",
     "options": [
-      "Giãn quá 1%.",
-      "Giãn quá 3% so với chiều dài ban đầu.",
-      "Giãn quá 5% so với chiều dài ban đầu.",
-      "Xích không bao giờ bị giãn."
+      "Cứ nâng bình thường",
+      "Bấm còi báo tránh",
+      "Tuyệt đối không được nâng hàng đi ngang qua đầu người",
+      "Nâng thật nhanh"
     ],
-    "answer": "Giãn quá 5% so với chiều dài ban đầu.",
-    "explain": "Xích bị giãn là dấu hiệu các mắt xích đã bị biến dạng dẻo, không còn khả năng chịu lực an toàn."
+    "answer": "Tuyệt đối không được nâng hàng đi ngang qua đầu người",
+    "explain": "Quy tắc an toàn nghiêm ngặt: không được di chuyển tải trọng phía trên con người."
   },
   {
     "id": 28,
-    "question": "Bánh xe cầu trục bị nứt vành hoặc mòn quá bao nhiêu % bề dày vành thì phải thay?",
+    "question": "Ý nghĩa của 'Tải trọng tịnh' (Net Capacity) là gì?",
     "options": [
-      "10%.",
-      "20%.",
-      "40% - 50%.",
-      "Chỉ khi nào vỡ mới thay."
+      "Trọng lượng vật nâng",
+      "Trọng lượng xe",
+      "Trọng lượng vật nâng trừ đi trọng lượng móc và thiết bị treo",
+      "Trọng lượng dầu"
     ],
-    "answer": "40% - 50%.",
-    "explain": "Độ mòn vành bánh xe quá lớn gây nguy cơ trật ray, làm đổ cầu trục."
+    "answer": "Trọng lượng vật nâng trừ đi trọng lượng móc và thiết bị treo",
+    "explain": "Là khả năng nâng thực tế sau khi đã trừ đi các phụ kiện treo trên cần."
   },
   {
     "id": 29,
-    "question": "Thời hạn kiểm định định kỳ đối với cầu trục thông thường là bao lâu?",
+    "question": "Kiểm tra mức dầu thủy lực khi nào là chính xác nhất?",
     "options": [
-      "6 tháng/lần.",
-      "1 năm/lần (hoặc 2 năm tùy vào thời gian sử dụng và tình trạng máy).",
-      "5 năm/lần.",
-      "Không cần kiểm định nếu máy còn mới."
+      "Khi đang nâng hàng",
+      "Khi máy đang nổ",
+      "Khi máy nghỉ, cần và chân chống đã thu về vị trí ban đầu",
+      "Lúc nào cũng được"
     ],
-    "answer": "1 năm/lần (hoặc 2 năm tùy vào thời gian sử dụng và tình trạng máy).",
-    "explain": "Kiểm định định kỳ giúp phát hiện các hư hỏng tiềm ẩn và duy trì điều kiện an toàn pháp lý."
+    "answer": "Khi máy nghỉ, cần và chân chống đã thu về vị trí ban đầu",
+    "explain": "Đảm bảo toàn bộ dầu đã hồi về bình chứa để đo mức chính xác."
   },
   {
     "id": 30,
-    "question": "Khi móc vật nặng, trọng tâm của vật phải nằm ở đâu so với móc cẩu?",
+    "question": "Khi làm việc gần hố móng sâu, chân chống phải cách mép hố bao nhiêu?",
     "options": [
-      "Nằm lệch sang bên phải.",
-      "Nằm lệch sang bên trái.",
-      "Nằm thẳng đứng bên dưới tâm của móc cẩu.",
-      "Nằm ở bất kỳ vị trí nào."
+      "Sát mép hố",
+      "1 mét",
+      "ít nhất bằng độ sâu của hố hoặc theo chỉ định kỹ thuật",
+      "50 cm"
     ],
-    "answer": "Nằm thẳng đứng bên dưới tâm của móc cẩu.",
-    "explain": "Giúp vật nâng cân bằng, không bị chao đảo hoặc trượt dây khi nhấc lên khỏi mặt đất."
+    "answer": "ít nhất bằng độ sâu của hố hoặc theo chỉ định kỹ thuật",
+    "explain": "Tránh áp lực chân chống làm sạt lở thành hố gây lật xe."
   },
   {
     "id": 31,
-    "question": "Khi sử dụng phương pháp treo 2 điểm, nếu góc treo là 120 độ, lực căng mỗi sợi dây bằng:",
+    "question": "Tại sao phải vệ sinh sạch tuyết hoặc bùn đất bám trên vật nâng trước khi nâng?",
     "options": [
-      "1/2 trọng lượng vật.",
-      "Trình trọng lượng vật.",
-      "2 lần trọng lượng vật.",
-      "0,7 lần trọng lượng vật."
+      "Cho sạch vật",
+      "Để vật đẹp hơn",
+      "Để xác định chính xác trọng lượng và tránh rơi vãi gây mất an toàn",
+      "Không cần thiết"
     ],
-    "answer": "Trình trọng lượng vật.",
-    "explain": "Góc treo càng lớn lực căng càng tăng, tại 120 độ lực căng bằng 100% trọng tải vật nâng."
+    "answer": "Để xác định chính xác trọng lượng và tránh rơi vãi gây mất an toàn",
+    "explain": "Bùn đất có thể làm tăng trọng lượng đáng kể hoặc rơi xuống người dưới."
   },
   {
     "id": 32,
-    "question": "Công việc 'Treo tải' (Tamagake) theo định nghĩa bao gồm:",
+    "question": "Bộ phận nào truyền lực từ động cơ đến các cơ cấu công tác của cần trục thủy lực?",
     "options": [
-      "Chỉ việc móc vật vào.",
-      "Chỉ việc tháo vật ra.",
-      "Bao gồm móc vật, ra hiệu và tháo vật.",
-      "Chỉ việc buộc dây."
+      "Xích tải",
+      "Dây curoa",
+      "Bơm thủy lực và dầu áp suất cao",
+      "Bánh răng hở"
     ],
-    "answer": "Bao gồm móc vật, ra hiệu và tháo vật.",
-    "explain": "Đây là một quy trình kỹ thuật hoàn chỉnh để di chuyển vật nặng an toàn."
+    "answer": "Bơm thủy lực và dầu áp suất cao",
+    "explain": "Sử dụng năng lượng dòng chất lỏng để đẩy xy lanh và mô tơ."
   },
   {
     "id": 33,
-    "question": "Tại sao không nên để góc treo vượt quá 90 độ?",
+    "question": "Khi nghe thấy tiếng động lạ từ bơm thủy lực, người vận hành nên làm gì?",
     "options": [
-      "Làm dây bị ngắn.",
-      "Lực căng tăng rất nhanh gây đứt dây hoặc biến dạng thiết bị.",
-      "Khó quan sát tín hiệu.",
-      "Làm động cơ nâng bị nóng."
+      "Tăng ga mạnh hơn",
+      "Dừng máy ngay để kiểm tra nguồn dầu và lọc dầu",
+      "Cứ để chạy hết ca",
+      "Đổ thêm nước vào bơm"
     ],
-    "answer": "Lực căng tăng rất nhanh gây đứt dây hoặc biến dạng thiết bị.",
-    "explain": "Góc treo lớn tạo lực xé ngang cực mạnh, vượt quá khả năng chịu tải của phụ kiện."
+    "answer": "Dừng máy ngay để kiểm tra nguồn dầu và lọc dầu",
+    "explain": "Tiếng hú thường do thiếu dầu hoặc lọt khí, nếu chạy tiếp sẽ hỏng bơm."
   },
   {
     "id": 34,
-    "question": "Khi dùng Ma ní (Shackle) nối dây, vị trí đúng của chốt là:",
+    "question": "Van an toàn trong hệ thống thủy lực có chức năng gì?",
     "options": [
-      "Đặt dây cáp trực tiếp lên thân chốt.",
-      "Đặt dây cáp vào phần vòng cung (thân) của ma ní.",
-      "Đặt chốt nằm nghiêng.",
-      "Không quan trọng vị trí."
+      "Làm dầu chảy nhanh",
+      "Giới hạn áp suất tối đa, bảo vệ đường ống và thiết bị",
+      "Khóa dầu lại",
+      "Làm mát dầu"
     ],
-    "answer": "Đặt dây cáp vào phần vòng cung (thân) của ma ní.",
-    "explain": "Đảm bảo lực phân bổ đều và tránh làm xoay chốt gây tuột ma ní."
+    "answer": "Giới hạn áp suất tối đa, bảo vệ đường ống và thiết bị",
+    "explain": "Tránh nổ đường ống hoặc hỏng xy lanh khi áp lực vượt mức cho phép."
   },
   {
     "id": 35,
-    "question": "Tín hiệu tay: Cánh tay giơ cao, lòng bàn tay hướng về phía trước và vẫy là tín hiệu gì?",
+    "question": "Khi hạ vật nâng xuống, người vận hành nên thực hiện thế nào để an toàn?",
     "options": [
-      "Nâng tải.",
-      "Hạ tải.",
-      "Di chuyển ngang.",
-      "Dừng lại."
+      "Hạ rơi tự do",
+      "Hạ từ từ, kết hợp phanh và điều khiển tốc độ",
+      "Hạ thật nhanh",
+      "Nhờ người dưới đẩy vật"
     ],
-    "answer": "Nâng tải.",
-    "explain": "Đây là quy ước tín hiệu tay chuẩn trong vận hành thiết bị nâng hạ."
+    "answer": "Hạ từ từ, kết hợp phanh và điều khiển tốc độ",
+    "explain": "Tránh lực quán tính lớn gây đứt cáp hoặc va đập mạnh làm hỏng hàng."
   },
   {
     "id": 36,
-    "question": "Sử dụng sling vải bị rách lớp vỏ bảo vệ nhìn thấy sợi chịu lực bên trong thì phải:",
+    "question": "'Tỉ số truyền của bộ palăng' ảnh hưởng thế nào đến lực nâng?",
     "options": [
-      "Dùng băng dính quấn lại làm tiếp.",
-      "Loại bỏ ngay lập tức.",
-      "Sử dụng để nâng hàng nhẹ.",
-      "Bôi keo vào chỗ rách."
+      "Càng nhiều nhánh cáp, lực nâng càng khỏe nhưng tốc độ chậm",
+      "Càng ít nhánh cáp càng khỏe",
+      "Không ảnh hưởng",
+      "Chỉ làm cáp nhanh hỏng"
     ],
-    "answer": "Loại bỏ ngay lập tức.",
-    "explain": "Sling vải bị tổn thương lõi chịu lực không còn đảm bảo hệ số an toàn thiết kế."
+    "answer": "Càng nhiều nhánh cáp, lực nâng càng khỏe nhưng tốc độ chậm",
+    "explain": "Tăng số nhánh cáp giúp giảm lực căng trên mỗi sợi cáp, tăng sức nâng."
   },
   {
     "id": 37,
-    "question": "Khi hạ vật nặng xuống sàn, cần lưu ý điều gì?",
+    "question": "Tại sao phải kiểm tra độ mòn của rãnh puly (sheave)?",
     "options": [
-      "Hạ thật nhanh để giải phóng móc.",
-      "Phải có gỗ đệm hoặc giá đỡ để tránh chèn nát dây cáp và dễ rút dây.",
-      "Hạ trực tiếp xuống sàn nhà.",
-      "Để vật tự rơi tự do đoạn cuối."
+      "Rãnh mòn không đều làm hỏng cáp và gây xoắn cáp",
+      "Để sơn cho đẹp",
+      "Để puly quay nhanh hơn",
+      "Không quan trọng"
     ],
-    "answer": "Phải có gỗ đệm hoặc giá đỡ để tránh chèn nát dây cáp và dễ rút dây.",
-    "explain": "Bảo vệ sàn nhà, vật nâng và giữ tuổi thọ cho dây treo buộc."
+    "answer": "Rãnh mòn không đều làm hỏng cáp và gây xoắn cáp",
+    "explain": "Rãnh puly hỏng sẽ trực tiếp 'nhai' cáp, gây đứt ngầm các sợi thép."
   },
   {
     "id": 38,
-    "question": "Dây cáp thép bị han gỉ bề mặt nhưng chưa đứt sợi thì:",
+    "question": "Khi đang vận hành mà bị mất điện (với cần trục điện), phải xử lý thế nào?",
     "options": [
-      "Dùng bình thường.",
-      "Phải làm sạch, bôi mỡ bảo quản và theo dõi sát sao.",
-      "Sơn lại cho đẹp.",
-      "Ngâm vào nước muối."
+      "Đưa tất cả tay điều khiển về vị trí '0' (ngắt) và chờ",
+      "Nhảy khỏi cabin",
+      "Tìm dây điện đấu lại",
+      "Thả hàng rơi xuống"
     ],
-    "answer": "Phải làm sạch, bôi mỡ bảo quản và theo dõi sát sao.",
-    "explain": "Gỉ sét làm giảm tiết diện chịu lực và tính linh hoạt của cáp."
+    "answer": "Đưa tất cả tay điều khiển về vị trí '0' (ngắt) và chờ",
+    "explain": "Đưa về vị trí trung tính để tránh thiết bị tự hoạt động bất ngờ khi có điện lại."
   },
   {
     "id": 39,
-    "question": "Trong cabin cầu trục, trang bị nào sau đây là bắt buộc để chữa cháy?",
+    "question": "Khi gió vượt quá 15m/s (cấp 6-7), trạng thái cần trục nên để thế nào?",
     "options": [
-      "Xô nước.",
-      "Bình chữa cháy bột hoặc khí CO2.",
-      "Bao tải ướt.",
-      "Cát khô."
+      "Thu cần, hạ cần xuống thấp hoặc đặt vào giá đỡ (nếu có)",
+      "Để cần cao nhất",
+      "Xoay cần liên tục",
+      "Treo thêm vật nặng"
     ],
-    "answer": "Bình chữa cháy bột hoặc khí CO2.",
-    "explain": "Phù hợp để dập tắt các đám cháy liên quan đến thiết bị điện trong cabin."
+    "answer": "Thu cần, hạ cần xuống thấp hoặc đặt vào giá đỡ (nếu có)",
+    "explain": "Giảm diện tích cản gió và hạ trọng tâm để chống lật xe."
   },
   {
     "id": 40,
-    "question": "Sling xích bị mòn mắt xích quá 10% đường kính thì phải:",
+    "question": "Tại sao không được nâng vật khi trọng lượng vượt quá biểu đồ tải?",
     "options": [
-      "Hàn bù vào chỗ mòn.",
-      "Tiếp tục dùng cho hàng nhẹ.",
-      "Ngừng sử dụng và loại bỏ.",
-      "Lộn ngược xích lại để dùng."
+      "Gây mất ổn định, có thể làm gãy cần hoặc lật cần trục",
+      "Vì tốn xăng",
+      "Vật sẽ bị vỡ",
+      "Máy sẽ nổ"
     ],
-    "answer": "Ngừng sử dụng và loại bỏ.",
-    "explain": "Độ mòn 10% là giới hạn an toàn kỹ thuật cho phép đối với xích chịu lực."
+    "answer": "Gây mất ổn định, có thể làm gãy cần hoặc lật cần trục",
+    "explain": "Vượt tải trọng định mức là nguyên nhân hàng đầu gây tai nạn lật cần."
   },
   {
     "id": 41,
-    "question": "Khi sử dụng khóa cáp (Cóc cáp - Wire rope clip), cách đặt nào là đúng kỹ thuật?",
+    "question": "Khi dùng cần trục bánh lốp để di chuyển vật (Pick and Carry), cần lưu ý gì?",
     "options": [
-      "Đặt phần thân chữ U lên đầu dây ngắn (đầu chết).",
-      "Đặt phần thân chữ U lên đầu dây dài (đầu chịu lực).",
-      "Đặt xen kẽ các khóa cáp ngược chiều nhau.",
-      "Cách đặt nào cũng được."
+      "Vật nâng phải sát mặt đất, cần để dọc xe, di chuyển chậm",
+      "Chạy tốc độ cao",
+      "Nâng vật lên thật cao",
+      "Xoay toa liên tục"
     ],
-    "answer": "Đặt phần thân chữ U lên đầu dây ngắn (đầu chết).",
-    "explain": "Phần đế (yên) của khóa cáp phải nằm ở phía dây chịu lực để tránh làm dập cáp chính."
+    "answer": "Vật nâng phải sát mặt đất, cần để dọc xe, di chuyển chậm",
+    "explain": "Đảm bảo trọng tâm thấp và ổn định nhất khi xe đang di chuyển."
   },
   {
     "id": 42,
-    "question": "Số lượng khóa cáp tối thiểu cho một đầu dây cáp thường là bao nhiêu?",
+    "question": "Bộ phận 'Phanh dừng' (Parking brake) của xe cẩu dùng khi nào?",
     "options": [
-      "1 khóa.",
-      "Ít nhất từ 3 khóa trở lên (tùy theo đường kính cáp).",
-      "Càng nhiều càng tốt, không giới hạn.",
-      "Không cần dùng khóa nếu đã thắt nút."
+      "Khi xe đã dừng hẳn và người lái rời cabin",
+      "Khi đang chạy",
+      "Khi đang nâng hàng",
+      "Không bao giờ dùng"
     ],
-    "answer": "Ít nhất từ 3 khóa trở lên (tùy theo đường kính cáp).",
-    "explain": "Đảm bảo đủ lực ma sát để giữ đầu cáp không bị tuột dưới tải trọng định mức."
+    "answer": "Khi xe đã dừng hẳn và người lái rời cabin",
+    "explain": "Đảm bảo xe đứng yên cố định, không bị trôi tự do khi không có lái."
   },
   {
     "id": 43,
-    "question": "Khi di chuyển tải, nếu thấy vật bị xoay tròn, ta nên làm gì?",
+    "question": "Áp suất lốp xe cẩu không đều ảnh hưởng gì khi nâng hàng?",
     "options": [
-      "Dùng tay không bắt lấy vật để dừng xoay.",
-      "Dùng dây dẫn hướng (Tag line) để kiểm soát.",
-      "Kéo vật vào dầm biên.",
-      "Tăng tốc độ di chuyển ngang."
+      "Không ảnh hưởng",
+      "Làm xe bị nghiêng, mất cân bằng và dễ lật",
+      "Làm tốn lốp",
+      "Chỉ làm xe chạy xóc"
     ],
-    "answer": "Dùng dây dẫn hướng (Tag line) để kiểm soát.",
-    "explain": "Dây dẫn hướng giúp điều khiển vật từ xa mà không cần tiếp cận trực tiếp khu vực nguy hiểm."
+    "answer": "Làm xe bị nghiêng, mất cân bằng và dễ lật",
+    "explain": "Độ nghiêng dù nhỏ ở chân đế cũng sẽ phóng đại rất lớn ở đầu cần."
+  },
+  {
+    "id": 44,
+    "question": "Khi thay cáp mới, chiều xoắn của cáp phải như thế nào?",
+    "options": [
+      "Xoắn ngược lại",
+      "Cùng chiều xoắn với cáp cũ hoặc theo thiết kế của tang",
+      "Xoắn tùy ý",
+      "Cáp nào cũng được"
+    ],
+    "answer": "Cùng chiều xoắn với cáp cũ hoặc theo thiết kế của tang",
+    "explain": "Tránh hiện tượng cáp tự xoắn hoặc bung khỏi rãnh tang."
+  },
+  {
+    "id": 45,
+    "question": "Tại sao phải bôi trơn cáp thép định kỳ?",
+    "options": [
+      "Để cáp bóng",
+      "Chống gỉ sét và giảm ma sát giữa các sợi thép bên trong",
+      "Để cáp nhanh hỏng",
+      "Để tay không bị bẩn"
+    ],
+    "answer": "Chống gỉ sét và giảm ma sát giữa các sợi thép bên trong",
+    "explain": "Dầu mỡ bảo vệ lõi cáp và giúp các sợi thép trượt lên nhau linh hoạt."
+  },
+  {
+    "id": 46,
+    "question": "Ký hiệu 'Cánh tay duỗi thẳng, nắm đấm xoay tròn' nghĩa là gì?",
+    "options": [
+      "Dừng lại",
+      "Thu cần",
+      "Hạ móc cẩu (Hạ hàng)",
+      "Quay toa"
+    ],
+    "answer": "Quay toa",
+    "explain": "Đây là hiệu lệnh chuẩn để yêu cầu người lái xoay phần toa quay."
+  },
+  {
+    "id": 47,
+    "question": "Nếu chân chống bị hổng (nhấc lên) khỏi mặt đất khi đang nâng, bạn làm gì?",
+    "options": [
+      "Cứ nâng tiếp",
+      "Lập tức hạ hàng xuống từ từ để lấy lại thăng bằng",
+      "Nhờ người đè lên chân",
+      "Chạy ra khỏi xe"
+    ],
+    "answer": "Lập tức hạ hàng xuống từ từ để lấy lại thăng bằng",
+    "explain": "Đây là dấu hiệu xe sắp lật, phải giảm mô-men tải ngay lập tức."
+  },
+  {
+    "id": 48,
+    "question": "Vai trò của van một chiều có khóa thủy lực trên chân chống?",
+    "options": [
+      "Để dầu chảy đều",
+      "Giữ chân chống không bị thu về khi đường ống bị vỡ",
+      "Để chân nhanh ra",
+      "Không có vai trò gì"
+    ],
+    "answer": "Giữ chân chống không bị thu về khi đường ống bị vỡ",
+    "explain": "Đảm bảo chân chống giữ nguyên vị trí dù hệ thống thủy lực mất áp."
+  },
+  {
+    "id": 49,
+    "question": "Khi nâng kiện hàng dài, để tránh hàng bị xoay, người ta dùng gì?",
+    "options": [
+      "Dây thừng (dây lèo) để điều hướng",
+      "Tay giữ trực tiếp",
+      "Kệ hàng",
+      "Không dùng gì"
+    ],
+    "answer": "Dây thừng (dây lèo) để điều hướng",
+    "explain": "Dây lèo giúp giữ vật ổn định từ xa, tránh va đập vào thân cần."
+  },
+  {
+    "id": 50,
+    "question": "Khi làm việc trong kho hẹp, cần lưu ý điều gì về khí thải?",
+    "options": [
+      "Không cần lưu ý",
+      "Phải đảm bảo thông gió để tránh ngộ độc khí CO từ động cơ",
+      "Tắt máy khi làm",
+      "Đeo khẩu trang là đủ"
+    ],
+    "answer": "Phải đảm bảo thông gió để tránh ngộ độc khí CO từ động cơ",
+    "explain": "Khí thải động cơ trong không gian kín cực kỳ nguy hiểm cho sức khỏe."
+  },
+  {
+    "id": 51,
+    "question": "Tại sao không được nâng hàng khi dây cáp chưa vào đúng rãnh puly?",
+    "options": [
+      "Làm xước puly",
+      "Cáp có thể bị kẹt, dập nát hoặc đứt đột ngột",
+      "Làm puly kêu",
+      "Làm hàng bị bẩn"
+    ],
+    "answer": "Cáp có thể bị kẹt, dập nát hoặc đứt đột ngột",
+    "explain": "Cáp nằm ngoài rãnh sẽ chịu lực cắt và ma sát cực lớn."
+  },
+  {
+    "id": 52,
+    "question": "Độ võng cho phép của cần khi nâng tải định mức là bao nhiêu?",
+    "options": [
+      "Càng võng càng tốt",
+      "Theo tiêu chuẩn cho phép của nhà sản xuất",
+      "1 mét",
+      "Không được võng"
+    ],
+    "answer": "Theo tiêu chuẩn cho phép của nhà sản xuất",
+    "explain": "Cần luôn có độ đàn hồi nhất định nhưng không được vượt ngưỡng bền."
+  },
+  {
+    "id": 53,
+    "question": "Trước khi nâng vật lạ không rõ trọng lượng, người lái nên làm gì?",
+    "options": [
+      "Cứ nâng thử",
+      "Ước tính bằng cách đo kích thước, hỏi chủ hàng hoặc dùng cân",
+      "Nâng thật nhanh",
+      "Không nâng"
+    ],
+    "answer": "Ước tính bằng cách đo kích thước, hỏi chủ hàng hoặc dùng cân",
+    "explain": "Phải biết chính xác trọng lượng để so sánh với biểu đồ tải."
+  },
+  {
+    "id": 54,
+    "question": "Khi nào cần kiểm tra bộ lọc dầu thủy lực?",
+    "options": [
+      "Khi hỏng máy",
+      "Định kỳ theo số giờ hoạt động hoặc khi đèn cảnh báo sáng",
+      "10 năm một lần",
+      "Khi thấy dầu đen"
+    ],
+    "answer": "Định kỳ theo số giờ hoạt động hoặc khi đèn cảnh báo sáng",
+    "explain": "Giữ dầu sạch giúp bảo vệ các van điều khiển chính xác."
+  },
+  {
+    "id": 55,
+    "question": "Ý nghĩa của màu đỏ trên đồng hồ đo tải trọng?",
+    "options": [
+      "Màu đẹp",
+      "Vùng nguy hiểm, quá tải, phải dừng ngay",
+      "Vùng máy đang khỏe",
+      "Vùng máy đang nóng"
+    ],
+    "answer": "Vùng nguy hiểm, quá tải, phải dừng ngay",
+    "explain": "Cảnh báo giới hạn cuối cùng trước khi xảy ra sự cố."
+  },
+  {
+    "id": 56,
+    "question": "Việc quay toa quá nhanh khi đang có tải gây ra nguy hiểm gì?",
+    "options": [
+      "Làm xe chạy nhanh",
+      "Lực ly tâm làm vật văng ra xa gây mất ổn định và lật xe",
+      "Tốn dầu",
+      "Làm mòn bánh răng"
+    ],
+    "answer": "Lực ly tâm làm vật văng ra xa gây mất ổn định và lật xe",
+    "explain": "Tải trọng văng ra xa làm tăng tầm với thực tế, gây quá tải."
   },
   {
     "id": 57,
-    "question": "Một bộ xích có 4 nhánh, nhưng chỉ sử dụng 2 nhánh để nâng, tải trọng an toàn sẽ tính thế nào?",
+    "question": "Tại sao phải xả nước ngưng tụ trong bình chứa khí nén (nếu có)?",
     "options": [
-      "Bằng 100% tổng tải trọng 4 nhánh.",
-      "Chỉ tính dựa trên khả năng chịu tải của 2 nhánh đang dùng.",
-      "Tính bằng 50% trọng lượng vật.",
-      "Không được phép dùng như vậy."
+      "Để bình nhẹ hơn",
+      "Tránh gỉ sét bình và đảm bảo phanh hơi hoạt động chính xác",
+      "Để lấy nước rửa tay",
+      "Không cần xả"
     ],
-    "answer": "Chỉ tính dựa trên khả năng chịu tải của 2 nhánh đang dùng.",
-    "explain": "Phải đảm bảo 2 nhánh đang dùng đủ sức chịu 100% tải trọng của vật."
+    "answer": "Tránh gỉ sét bình và đảm bảo phanh hơi hoạt động chính xác",
+    "explain": "Nước làm giảm thể tích chứa khí và gây hỏng các van khí nén."
   },
   {
     "id": 58,
-    "question": "Khi buộc dây kiểu 'U-lift' (treo chữ U), khả năng chịu tải của dây thay đổi thế nào?",
+    "question": "Khi xe cẩu di chuyển trên đường giao thông, cần lưu ý gì?",
     "options": [
-      "Giảm đi một nửa.",
-      "Tăng gấp đôi (nếu dây thẳng đứng).",
-      "Giữ nguyên.",
-      "Giảm 20%."
+      "Phải thu gọn cần, móc cẩu và chân chống theo đúng quy định",
+      "Cứ để cần vươn dài",
+      "Chạy tốc độ tùy ý",
+      "Không cần bằng lái"
     ],
-    "answer": "Tăng gấp đôi (nếu dây thẳng đứng).",
-    "explain": "Khi treo chữ U song song, trọng lượng vật chia đều cho 2 nhánh, nên sức nâng tổng thể tăng lên."
+    "answer": "Phải thu gọn cần, móc cẩu và chân chống theo đúng quy định",
+    "explain": "Tuân thủ kích thước hình học để tránh va chạm vào cầu vượt, dây điện."
   },
   {
     "id": 59,
-    "question": "Tại sao không được thắt nút dây cáp thép để nối dài?",
+    "question": "Thiết bị 'Cầu chì' trong hệ thống điện có tác dụng gì?",
     "options": [
-      "Vì nhìn không thẩm mỹ.",
-      "Vì nút thắt làm giảm 50-80% sức bền của dây và gây gãy sợi thép.",
-      "Vì tốn thời gian tháo nút.",
-      "Vì làm dây bị bẩn."
+      "Làm sáng đèn",
+      "Tăng điện áp",
+      "Bảo vệ mạch điện khi bị chập hoặc quá tải",
+      "Tích trữ điện"
     ],
-    "answer": "Vì nút thắt làm giảm 50-80% sức bền của dây và gây gãy sợi thép.",
-    "explain": "Nút thắt tạo ra những điểm ứng suất cực lớn gây phá hủy cấu trúc dây."
+    "answer": "Bảo vệ mạch điện khi bị chập hoặc quá tải",
+    "explain": "Tự ngắt mạch để tránh cháy nổ hệ thống dây điện trên xe."
+  },
+  {
+    "id": 60,
+    "question": "Khi móc hàng, góc kẹp giữa hai nhánh dây xích/cáp càng lớn thì?",
+    "options": [
+      "Lực chịu đựng càng tăng",
+      "Không thay đổi",
+      "Lực căng trên mỗi nhánh dây càng tăng (dễ đứt dây)",
+      "Dây càng chùng"
+    ],
+    "answer": "Lực căng trên mỗi nhánh dây càng tăng (dễ đứt dây)",
+    "explain": "Góc kẹp lớn làm tăng lực xé ngang, rất nguy hiểm cho dây treo."
   },
   {
     "id": 61,
-    "question": "Khi sử dụng kiểu buộc 'Thắt nút cổ chai' (Choker Hitch), khả năng chịu tải của dây thay đổi thế nào?",
+    "question": "Người vận hành có được phép dùng cần trục để kéo lê xe khác không?",
     "options": [
-      "Tăng lên 120% sức bền.",
-      "Giữ nguyên 100% sức bền.",
-      "Giảm xuống còn khoảng 75-80% sức bền định mức.",
-      "Giảm xuống còn 20% sức bền định mức."
+      "Được, nếu xe nhẹ",
+      "Được, nếu dùng dây xích",
+      "Tuyệt đối không, vì cần trục chỉ thiết kế để nâng",
+      "Có nếu được trả thêm tiền"
     ],
-    "answer": "Giảm xuống còn khoảng 75-80% sức bền định mức.",
-    "explain": "Điểm thắt nút tạo ra ứng suất uốn cục bộ làm yếu dây cáp/sling vải."
+    "answer": "Tuyệt đối không, vì cần trục chỉ thiết kế để nâng",
+    "explain": "Sai mục đích sử dụng gây hư hỏng kết cấu truyền động và khung gầm."
   },
   {
     "id": 62,
-    "question": "Thứ tự các bước đúng khi ra tín hiệu điều khiển cầu trục là:",
+    "question": "Xe máy chuyên dùng (xe cẩu) khi tham gia giao thông cần có giấy tờ gì?",
     "options": [
-      "Ra hiệu -> Người lái thực hiện -> Kiểm tra an toàn.",
-      "Kiểm tra an toàn -> Ra hiệu -> Quan sát phản hồi.",
-      "Cứ thế ra hiệu không cần quan sát.",
-      "Chỉ ra hiệu khi người lái nhìn về phía mình."
+      "Không cần giấy tờ",
+      "Chỉ cần bằng lái",
+      "Giấy đăng ký, CN kiểm định an toàn kỹ thuật, bằng lái phù hợp",
+      "Chỉ cần bảo hiểm"
     ],
-    "answer": "Kiểm tra an toàn -> Ra hiệu -> Quan sát phản hồi.",
-    "explain": "Luôn ưu tiên an toàn trước khi thực hiện bất kỳ lệnh chuyển động nào."
+    "answer": "Giấy đăng ký, CN kiểm định an toàn kỹ thuật, bằng lái phù hợp",
+    "explain": "Đảm bảo tính pháp lý và an toàn kỹ thuật của thiết bị khi lưu thông."
   },
   {
     "id": 63,
-    "question": "Khi nâng một bó thép dài, kiểu buộc nào là an toàn nhất?",
+    "question": "Người vận hành cần trục có được uống rượu bia trước ca làm không?",
     "options": [
-      "Buộc 1 vòng đơn ở giữa.",
-      "Buộc 2 vòng kiểu thắt nút cổ chai ở hai đầu bó thép.",
-      "Treo trực tiếp vào móc.",
-      "Dùng nam châm điện."
+      "Có, nếu uống ít",
+      "Tuyệt đối không (nồng độ cồn bằng 0)",
+      "Có, nếu thấy tỉnh táo",
+      "Uống để tăng hưng phấn"
     ],
-    "answer": "Buộc 2 vòng kiểu thắt nút cổ chai ở hai đầu bó thép.",
-    "explain": "Giúp bó thép cân bằng, không bị xòe hoặc tuột các thanh thép ở giữa."
+    "answer": "Tuyệt đối không (nồng độ cồn bằng 0)",
+    "explain": "Rượu bia làm giảm phản xạ và khả năng phán đoán, gây nguy cơ tai nạn cực cao."
   },
   {
     "id": 64,
-    "question": "Âm hiệu 'Hai tiếng còi ngắn' có ý nghĩa thông thường là gì?",
+    "question": "Khi xe cẩu đi qua cầu hẹp, người lái phải chú ý điều gì nhất?",
     "options": [
-      "Nâng tải.",
-      "Hạ tải.",
-      "Di chuyển ngang.",
-      "Dừng lại."
+      "Tốc độ xe",
+      "Trọng tải cho phép của cầu và khổ giới hạn chiều cao",
+      "Màu sơn của cầu",
+      "Tiếng còi xe khác"
     ],
-    "answer": "Hạ tải.",
-    "explain": "Đây là quy ước âm hiệu thường dùng trong điều khiển thiết bị nâng tại công trường."
+    "answer": "Trọng tải cho phép của cầu và khổ giới hạn chiều cao",
+    "explain": "Tránh sập cầu hoặc va chạm vào giàn thép của cầu do xe quá nặng/quá cao."
   },
   {
     "id": 65,
-    "question": "Tại sao phải để ý góc giữa hai nhánh dây cáp khi nâng?",
+    "question": "Mục đích của việc kiểm định định kỳ cần trục là gì?",
     "options": [
-      "Để tiết kiệm dây.",
-      "Để kiểm soát lực căng; góc càng lớn lực căng càng tăng.",
-      "Để vật không bị xoay.",
-      "Để nâng được nhanh hơn."
+      "Để nộp phí",
+      "Xác nhận thiết bị đủ điều kiện an toàn để tiếp tục hoạt động",
+      "Cho đủ thủ tục",
+      "Để bán xe được giá"
     ],
-    "answer": "Để kiểm soát lực căng; góc càng lớn lực căng càng tăng.",
-    "explain": "Góc kẹp lớn làm tăng thành phần lực kéo ngang, dễ gây đứt dây dù tải trọng vật không đổi."
+    "answer": "Xác nhận thiết bị đủ điều kiện an toàn để tiếp tục hoạt động",
+    "explain": "Cơ quan chức năng kiểm tra các kết cấu chịu lực và hệ thống an toàn."
   },
   {
     "id": 66,
-    "question": "Khi móc cáp vào móc cẩu, phải đảm bảo điều gì?",
+    "question": "Khi thay dầu động cơ, tại sao nên thay khi máy còn ấm?",
     "options": [
-      "Móc càng nhiều dây càng tốt.",
-      "Dây cáp nằm gọn trong lòng móc và lẫy an toàn (safety latch) phải đóng.",
-      "Dây cáp nằm ở đầu mũi móc.",
-      "Không cần đóng lẫy an toàn."
+      "Cho nhanh",
+      "Để dầu loãng, dễ chảy hết cặn bẩn ra ngoài",
+      "Để không bị bỏng",
+      "Để tiết kiệm dầu"
     ],
-    "answer": "Dây cáp nằm gọn trong lòng móc và lẫy an toàn (safety latch) phải đóng.",
-    "explain": "Ngăn chặn việc dây cáp bị tuột ra khỏi móc khi vật nâng bị rung lắc hoặc chạm đất."
+    "answer": "Để dầu loãng, dễ chảy hết cặn bẩn ra ngoài",
+    "explain": "Dầu ấm có độ nhớt thấp, giúp xả sạch các mạt kim loại và tạp chất."
   },
   {
     "id": 67,
-    "question": "Kiểm tra sling vải hàng ngày cần chú ý điều gì nhất?",
+    "question": "Ký hiệu 'W' trên cáp thép có ý nghĩa gì?",
     "options": [
-      "Màu sắc của dây.",
-      "Các vết cắt, mòn, cháy hóa chất hoặc sợi chỉ đỏ báo hiệu giới hạn mòn.",
-      "Độ dài của dây.",
-      "Tên nhà sản xuất."
+      "Cáp yếu",
+      "Kiểu bện các sợi thép bên trong (Warrington)",
+      "Cáp màu trắng",
+      "Cáp dùng cho nước"
     ],
-    "answer": "Các vết cắt, mòn, cháy hóa chất hoặc sợi chỉ đỏ báo hiệu giới hạn mòn.",
-    "explain": "Sling vải rất dễ bị hỏng bởi cạnh sắc và nhiệt độ, cần kiểm tra kỹ bề mặt chịu lực."
+    "answer": "Kiểu bện các sợi thép bên trong (Warrington)",
+    "explain": "Thông số kỹ thuật về cấu trúc bện của các sợi thép trong tao cáp."
   },
   {
     "id": 68,
-    "question": "Khi sử dụng dầm cân bằng (Spreader bar) để nâng hàng có lợi ích gì?",
+    "question": "Khi làm việc ở nơi có đất nền bùn nhão, việc đầu tiên cần làm là?",
     "options": [
-      "Làm vật nhẹ đi.",
-      "Giảm góc nghiêng của dây treo, bảo vệ vật nâng không bị móp méo do lực ép ngang.",
-      "Tăng tốc độ nâng.",
-      "Không cần người ra tín hiệu."
+      "Cứ ra chân chống",
+      "Gia cố nền bằng tấm thép lót hoặc đổ đá dăm",
+      "Nâng hàng nhanh",
+      "Chạy xe qua nhanh"
     ],
-    "answer": "Giảm góc nghiêng của dây treo, bảo vệ vật nâng không bị móp méo do lực ép ngang.",
-    "explain": "Dầm cân bằng giúp chuyển lực ép ngang thành lực kéo thẳng đứng lên các điểm móc của vật."
+    "answer": "Gia cố nền bằng tấm thép lót hoặc đổ đá dăm",
+    "explain": "Tạo bề mặt cứng vững để chân chống không bị lún khi chịu tải."
   },
   {
     "id": 69,
-    "question": "Nếu dây cáp bị chồng chéo trên tang trống (Drum), ta phải làm gì?",
+    "question": "Tại sao phải kiểm tra bình điện (ắc quy) định kỳ?",
     "options": [
-      "Cứ tiếp tục nâng.",
-      "Dừng lại, xả cáp ra và quấn lại cho đều.",
-      "Dùng gậy chọc vào cho nó đều.",
-      "Đổ dầu vào cho nó trơn."
+      "Để bình luôn sạch",
+      "Không cần kiểm tra",
+      "Để bình không bị mất trộm",
+      "Đảm bảo đủ điện khởi động và các thiết bị an toàn hoạt động"
     ],
-    "answer": "Dừng lại, xả cáp ra và quấn lại cho đều.",
-    "explain": "Cáp chồng chéo sẽ bị bẹp, dập và có thể làm nhảy cáp ra khỏi tang trống gây đứt đột ngột."
+    "answer": "Đảm bảo đủ điện khởi động và các thiết bị an toàn hoạt động",
+    "explain": "ắc quy yếu có thể làm mất tín hiệu của bộ cảnh báo quá tải LMI."
   },
   {
     "id": 70,
-    "question": "Khi làm việc ngoài trời, nếu gió mạnh trên cấp mấy thì phải ngừng vận hành?",
+    "question": "Khi dây cáp bị 'lồng chim' (bung các sợi thép), bạn xử lý thế nào?",
     "options": [
-      "Cấp 2.",
-      "Cấp 4.",
-      "Cấp 6 trở lên.",
-      "Bất kỳ khi nào có gió."
+      "Dùng băng keo quấn lại",
+      "Bôi thêm mỡ",
+      "Tiếp tục dùng",
+      "Loại bỏ và thay cáp mới ngay lập tức"
     ],
-    "answer": "Cấp 6 trở lên.",
-    "explain": "Gió lớn làm vật nâng chao đảo mạnh, gây mất kiểm soát và có thể làm lật hoặc hỏng kết cấu cầu trục."
+    "answer": "Loại bỏ và thay cáp mới ngay lập tức",
+    "explain": "Đây là hư hỏng cấu trúc nghiêm trọng, cáp không còn khả năng chịu tải."
   },
   {
     "id": 71,
-    "question": "Khi đang vận hành mà nghe thấy tiếng động lạ phát ra từ hộp số hoặc động cơ, người lái phải:",
+    "question": "Người đánh tín hiệu đứng ở đâu là an toàn nhất?",
     "options": [
-      "Cố gắng làm nốt cho xong việc.",
-      "Dừng máy ngay lập tức, hạ tải (nếu có thể) và báo bộ phận kỹ thuật.",
-      "Tăng tốc độ để vượt qua điểm kêu.",
-      "Đổ thêm dầu vào vị trí phát ra tiếng kêu."
+      "Dưới vật nâng",
+      "Đứng sau xe",
+      "Trong cabin cùng lái xe",
+      "Vị trí người lái dễ quan sát thấy và ngoài tầm rơi của hàng"
     ],
-    "answer": "Dừng máy ngay lập tức, hạ tải (nếu có thể) và báo bộ phận kỹ thuật.",
-    "explain": "Tiếng động lạ là dấu hiệu cảnh báo hư hỏng cơ khí nghiêm trọng, tiếp tục vận hành có thể gây gãy vỡ linh kiện."
+    "answer": "Vị trí người lái dễ quan sát thấy và ngoài tầm rơi của hàng",
+    "explain": "Đảm bảo thông tin liên lạc thông suốt và an toàn cho bản thân."
   },
   {
     "id": 72,
-    "question": "Trong các loại dây sau, loại nào có khả năng chống cháy và chịu nhiệt tốt nhất?",
+    "question": "Khi gặp sự cố đổ cẩu, việc đầu tiên người lái nên làm là?",
     "options": [
-      "Sling vải (Webbing sling).",
-      "Dây cáp thép.",
-      "Dây xích thép chịu lực.",
-      "Dây thừng nilon."
+      "Bỏ mặc hiện trường",
+      "Ngắt động cơ (nếu có thể), thoát ra ngoài an toàn và báo cáo",
+      "Gọi điện cho người thân",
+      "Khóc"
     ],
-    "answer": "Dây xích thép chịu lực.",
-    "explain": "Xích thép có khả năng chịu nhiệt độ cao nhất mà không bị biến dạng hoặc cháy đứt như vải hay cáp thép có lõi dầu."
+    "answer": "Ngắt động cơ (nếu có thể), thoát ra ngoài an toàn và báo cáo",
+    "explain": "Ưu tiên thoát hiểm và ngăn chặn nguy cơ cháy nổ từ động cơ."
   },
   {
     "id": 73,
-    "question": "Sử dụng 'Tai cẩu' (Eyebolt) để nâng hàng cần lưu ý điều gì?",
+    "question": "Tại sao phải dùng 'Móc cẩu có lẫy an toàn'?",
     "options": [
-      "Vặn thật chặt vào lỗ ren và lực kéo phải phù hợp với thiết kế của Eyebolt.",
-      "Chỉ cần móc đại vào là được.",
-      "Càng vặn lỏng càng tốt.",
-      "Dùng Eyebolt nhỏ để nâng vật cực nặng."
+      "Cho đẹp",
+      "Ngăn dây treo hàng bị tuột ra khỏi móc khi bị chùng dây",
+      "Để móc chắc hơn",
+      "Không cần thiết"
     ],
-    "answer": "Vặn thật chặt vào lỗ ren và lực kéo phải phù hợp với thiết kế của Eyebolt.",
-    "explain": "Eyebolt nếu không vặn hết ren hoặc chịu lực chéo quá mức sẽ rất dễ bị gãy ngang."
+    "answer": "Ngăn dây treo hàng bị tuột ra khỏi móc khi bị chùng dây",
+    "explain": "Lẫy an toàn (safety latch) là bộ phận bắt buộc để tránh rơi hàng."
+  },
+  {
+    "id": 74,
+    "question": "Khi nâng kiện hàng có kích thước lớn, sức cản gió ảnh hưởng gì?",
+    "options": [
+      "Làm hàng nhẹ đi",
+      "Làm tăng tải trọng ảo và gây lắc cần, mất ổn định",
+      "Làm hàng bay cao hơn",
+      "Không ảnh hưởng"
+    ],
+    "answer": "Làm tăng tải trọng ảo và gây lắc cần, mất ổn định",
+    "explain": "Diện tích đón gió lớn tạo ra lực đẩy ngang rất mạnh lên cần trục."
+  },
+  {
+    "id": 75,
+    "question": "Việc bảo dưỡng '10 giờ' (hàng ngày) bao gồm nội dung gì?",
+    "options": [
+      "Đại tu động cơ",
+      "Kiểm tra dầu, nước, phanh, đèn và các điểm bôi trơn chính",
+      "Sơn lại xe",
+      "Thay lốp mới"
+    ],
+    "answer": "Kiểm tra dầu, nước, phanh, đèn và các điểm bôi trơn chính",
+    "explain": "Những kiểm tra cơ bản nhất để đảm bảo xe sẵn sàng cho ca làm việc."
+  },
+  {
+    "id": 76,
+    "question": "Khi làm việc trong khu dân cư, tiếng còi cần trục dùng để làm gì?",
+    "options": [
+      "Để giải trí",
+      "Cảnh báo mọi người tránh xa vùng nguy hiểm",
+      "Để chào hỏi",
+      "Để xin đường"
+    ],
+    "answer": "Cảnh báo mọi người tránh xa vùng nguy hiểm",
+    "explain": "Là tín hiệu âm thanh bắt buộc để đảm bảo an toàn cho người xung quanh."
+  },
+  {
+    "id": 77,
+    "question": "Thời hạn kiểm định định kỳ đối với cần trục thường là bao nhiêu năm?",
+    "options": [
+      "10 năm",
+      "1 - 2 năm (tùy tình trạng và tuổi thọ thiết bị)",
+      "5 năm",
+      "6 tháng"
+    ],
+    "answer": "1 - 2 năm (tùy tình trạng và tuổi thọ thiết bị)",
+    "explain": "Theo quy định của Nhà nước về thiết bị có yêu cầu nghiêm ngặt về an toàn."
+  },
+  {
+    "id": 78,
+    "question": "Tại sao không được tăng ga đột ngột khi bắt đầu nâng hàng?",
+    "options": [
+      "Tốn dầu",
+      "Gây ra tải trọng động lớn, dễ đứt cáp hoặc gãy cần",
+      "Hỏng bô xe",
+      "Làm hàng bị rung"
+    ],
+    "answer": "Gây ra tải trọng động lớn, dễ đứt cáp hoặc gãy cần",
+    "explain": "Nâng từ từ để triệt tiêu độ chùng của cáp và tránh lực va đập."
+  },
+  {
+    "id": 79,
+    "question": "Khi thấy người bị điện giật do cần trục chạm dây điện, bạn phải?",
+    "options": [
+      "Ngắt điện (nếu có thể) hoặc dùng vật cách điện tách nạn nhân ra",
+      "Chạy lại ôm nạn nhân",
+      "Đổ nước vào nạn nhân",
+      "Đứng xem"
+    ],
+    "answer": "Ngắt điện (nếu có thể) hoặc dùng vật cách điện tách nạn nhân ra",
+    "explain": "Tuyệt đối không chạm trực tiếp vào nạn nhân khi chưa ngắt điện."
+  },
+  {
+    "id": 80,
+    "question": "Dầu thủy lực bị bẩn gây ra hậu quả gì?",
+    "options": [
+      "Làm mòn nhanh các van, bơm và gây kẹt hệ thống điều khiển",
+      "Làm dầu có màu đẹp",
+      "Không sao cả",
+      "Làm máy chạy êm hơn"
+    ],
+    "answer": "Làm mòn nhanh các van, bơm và gây kẹt hệ thống điều khiển",
+    "explain": "Tạp chất đóng vai trò như hạt mài phá hủy các bề mặt chính xác."
   },
   {
     "id": 81,
-    "question": "Khi nâng vật nặng có bề mặt trơn nhẵn, làm sao để dây không bị trượt?",
+    "question": "Việc sử dụng cần trục vượt quá thời hạn sử dụng (hết đời) sẽ?",
     "options": [
-      "Bôi mỡ vào bề mặt.",
-      "Sử dụng kiểu buộc nhiều vòng (Double wrap) hoặc lót thêm cao su nhám.",
-      "Nâng thật nhanh.",
-      "Dùng dây xích thay cho dây cáp."
+      "Bị cấm hoạt động vì nguy cơ mất an toàn rất cao",
+      "Được thưởng",
+      "Không sao nếu vẫn chạy được",
+      "Được giảm thuế"
     ],
-    "answer": "Sử dụng kiểu buộc nhiều vòng (Double wrap) hoặc lót thêm cao su nhám.",
-    "explain": "Tăng diện tích tiếp xúc và ma sát giúp cố định vật nâng, tránh rơi đổ."
+    "answer": "Bị cấm hoạt động vì nguy cơ mất an toàn rất cao",
+    "explain": "Kim loại bị mỏi theo thời gian, dễ gãy đổ bất ngờ không báo trước."
+  },
+  {
+    "id": 82,
+    "question": "Phanh của cơ cấu quay toa dùng để làm gì?",
+    "options": [
+      "Để xe chạy nhanh",
+      "Cố định phần trên của xe khi di chuyển hoặc khi không làm việc",
+      "Để nâng hàng",
+      "Để hãm động cơ"
+    ],
+    "answer": "Cố định phần trên của xe khi di chuyển hoặc khi không làm việc",
+    "explain": "Ngăn cần bị quay tự do do gió hoặc do nghiêng xe khi di chuyển."
+  },
+  {
+    "id": 83,
+    "question": "Khi hạ cần (boom down), tầm với của xe sẽ như thế nào?",
+    "options": [
+      "Tầm với giảm",
+      "Tầm với tăng lên (khả năng nâng giảm xuống)",
+      "Tầm với không đổi",
+      "Cần ngắn lại"
+    ],
+    "answer": "Tầm với tăng lên (khả năng nâng giảm xuống)",
+    "explain": "Góc cần càng thấp thì khoảng cách từ tâm quay đến móc càng xa."
+  },
+  {
+    "id": 84,
+    "question": "Tại sao phải đeo dây đai an toàn khi lái xe cẩu trên đường?",
+    "options": [
+      "Để không bị phạt",
+      "Giữ ổn định cơ thể và bảo vệ tính mạng khi xảy ra va chạm",
+      "Để ngồi cho đẹp",
+      "Không cần đeo"
+    ],
+    "answer": "Giữ ổn định cơ thể và bảo vệ tính mạng khi xảy ra va chạm",
+    "explain": "Là quy định bắt buộc đối với mọi người lái xe cơ giới."
+  },
+  {
+    "id": 85,
+    "question": "Khi nạp nhiên liệu cho xe, cần lưu ý điều gì?",
+    "options": [
+      "Vừa nạp vừa hút thuốc",
+      "Tắt máy, không hút thuốc hoặc dùng lửa gần khu vực nạp",
+      "Để máy nổ cho mát",
+      "Nạp càng nhanh càng tốt"
+    ],
+    "answer": "Tắt máy, không hút thuốc hoặc dùng lửa gần khu vực nạp",
+    "explain": "Tránh nguy cơ cháy nổ hơi nhiên liệu."
+  },
+  {
+    "id": 86,
+    "question": "Chức năng của đồng hồ đo áp suất dầu động cơ?",
+    "options": [
+      "Đo vận tốc",
+      "Để cho đẹp",
+      "Đo lượng xăng",
+      "Giám sát tình trạng bôi trơn của động cơ"
+    ],
+    "answer": "Giám sát tình trạng bôi trơn của động cơ",
+    "explain": "Áp suất thấp báo hiệu hệ thống bôi trơn hỏng, cần dừng máy ngay."
+  },
+  {
+    "id": 87,
+    "question": "Khi nâng vật có trọng tâm không nằm ở giữa, bạn phải làm gì?",
+    "options": [
+      "Cứ móc vào giữa",
+      "Bỏ không nâng",
+      "Nâng lệch cũng được",
+      "Điều chỉnh dây treo sao cho móc cẩu nằm thẳng trên trọng tâm vật"
+    ],
+    "answer": "Điều chỉnh dây treo sao cho móc cẩu nằm thẳng trên trọng tâm vật",
+    "explain": "Đảm bảo khi nhấc lên vật cân bằng, không bị đổ hoặc trượt."
+  },
+  {
+    "id": 88,
+    "question": "Vai trò của người hỗ trợ (Rigger) tại công trường?",
+    "options": [
+      "Để nói chuyện",
+      "Đi dọn rác",
+      "Làm thay việc người lái",
+      "Buộc hàng, đánh tín hiệu và đảm bảo an toàn khu vực nâng"
+    ],
+    "answer": "Buộc hàng, đánh tín hiệu và đảm bảo an toàn khu vực nâng",
+    "explain": "Là người 'mắt thứ hai' cho người lái cần trục."
+  },
+  {
+    "id": 89,
+    "question": "Khi thấy cáp bị xoắn ngược (kink), cách xử lý đúng nhất?",
+    "options": [
+      "Kéo thẳng ra",
+      "Cứ để vậy nâng",
+      "Bôi dầu vào",
+      "Thay đoạn cáp đó vì cấu trúc thép đã bị hư hỏng vĩnh viễn"
+    ],
+    "answer": "Thay đoạn cáp đó vì cấu trúc thép đã bị hư hỏng vĩnh viễn",
+    "explain": "Điểm xoắn tạo ra một điểm yếu cực lớn, cáp sẽ đứt tại đó."
+  },
+  {
+    "id": 90,
+    "question": "Tại sao không được nâng vật bị dính chặt xuống sàn bằng bê tông?",
+    "options": [
+      "Làm bẩn sàn",
+      "Làm hỏng bê tông",
+      "Lực dính tạo ra tải trọng lớn vô hạn, gây gãy cần ngay lập tức",
+      "Tốn thời gian"
+    ],
+    "answer": "Lực dính tạo ra tải trọng lớn vô hạn, gây gãy cần ngay lập tức",
+    "explain": "Phải giải phóng vật nâng khỏi mọi liên kết trước khi móc cáp."
   },
   {
     "id": 91,
-    "question": "Khi đang vận hành mà mất điện đột ngột, người lái phải làm gì?",
+    "question": "Việc 'Thử tải' sau khi sửa chữa lớn cơ cấu nâng nhằm mục đích gì?",
     "options": [
-      "Rời khỏi cabin ngay lập tức.",
-      "Đưa tất cả các tay điều khiển về vị trí '0' và chờ đợi.",
-      "Cố gắng dùng tay quay để hạ hàng.",
-      "Kéo phanh tay liên tục."
+      "Cho tốn kém",
+      "Để sơn lại máy",
+      "Kiểm tra độ bền kết cấu và độ tin cậy của phanh ở mức quá tải cho phép",
+      "Để máy chạy nhanh hơn"
     ],
-    "answer": "Đưa tất cả các tay điều khiển về vị trí '0' và chờ đợi.",
-    "explain": "Tránh việc thiết bị tự khởi động bất ngờ khi có điện trở lại gây nguy hiểm."
+    "answer": "Kiểm tra độ bền kết cấu và độ tin cậy của phanh ở mức quá tải cho phép",
+    "explain": "Đảm bảo các bộ phận mới thay thế chịu được áp lực thực tế."
   },
-  {
+{
     "id": 92,
-    "question": "Ai là người có quyền ký lệnh cho phép cầu trục hoạt động sau khi sửa chữa lớn?",
+    "question": "Khi di chuyển tải đi qua khu vực có máy móc đắt tiền, người vận hành cần chú ý gì?",
     "options": [
-      "Người thợ sửa chữa.",
-      "Người lái cầu trục.",
-      "Cơ quan kiểm định và lãnh đạo đơn vị sử dụng.",
-      "Bất kỳ ai."
+      "Nâng thật cao để không chạm vào",
+      "Di chuyển cực chậm và có người cảnh giới ở dưới",
+      "Yêu cầu thợ máy tắt máy",
+      "Che bạt lên máy móc"
     ],
-    "answer": "Cơ quan kiểm định và lãnh đạo đơn vị sử dụng.",
-    "explain": "Phải có biên bản kiểm tra thử tải và chứng nhận an toàn pháp lý sau khi can thiệp vào kết cấu máy."
+    "answer": "Di chuyển cực chậm và có người cảnh giới ở dưới",
+    "explain": "Đảm bảo không có bất kỳ rủi ro va chạm nào xảy ra trong khu vực nhạy cảm."
   },
   {
     "id": 93,
-    "question": "Ký hiệu 'SWL' (Safe Working Load) trên thiết bị nâng nghĩa là gì?",
+    "question": "Một người công nhân chưa có chứng chỉ vận hành cần trục có được phép điều khiển máy không?",
     "options": [
-      "Tốc độ làm việc an toàn.",
-      "Tải trọng làm việc an toàn.",
-      "Trọng lượng của chính cái máy.",
-      "Chiều cao nâng tối đa."
+      "Được, nếu có người giỏi đứng cạnh",
+      "Tuyệt đối không, trừ trường hợp đang trong khóa đào tạo có giáo viên kèm",
+      "Được, nếu chỉ nâng hàng nhẹ",
+      "Được, nếu là chủ doanh nghiệp"
     ],
-    "answer": "Tải trọng làm việc an toàn.",
-    "explain": "Đây là giới hạn tải trọng tối đa mà thiết bị được phép nâng trong điều kiện bình thường."
+    "answer": "Tuyệt đối không, trừ trường hợp đang trong khóa đào tạo có giáo viên kèm",
+    "explain": "Vận hành thiết bị nâng là công việc yêu cầu nghiêm ngặt về chứng chỉ chuyên môn."
   },
   {
     "id": 94,
-    "question": "Khi dùng sling cáp thép có 2 nhánh, góc kẹp giữa 2 nhánh nên là bao nhiêu độ là tối ưu?",
+    "question": "Tại sao phải kiểm tra phanh nâng hạ khi bắt đầu ca làm việc?",
     "options": [
-      "Dưới 60 độ.",
-      "90 độ.",
-      "120 độ.",
-      "150 độ."
+      "Để kiểm tra xem phanh có kêu không",
+      "Để đảm bảo phanh giữ được tải trọng, ngăn ngừa trôi tải tự do",
+      "Để làm nóng động cơ",
+      "Để kiểm tra điện áp"
     ],
-    "answer": "Dưới 60 độ.",
-    "explain": "Góc kẹp nhỏ giúp giảm lực căng lên mỗi nhánh cáp, đảm bảo hệ số an toàn cao nhất."
+    "answer": "Để đảm bảo phanh giữ được tải trọng, ngăn ngừa trôi tải tự do",
+    "explain": "Phanh là chốt chặn an toàn cuối cùng giữ vật ở trên không."
   },
   {
     "id": 95,
-    "question": "Người lái cầu trục có quyền từ chối nâng hàng khi nào?",
+    "question": "Khi kết thúc công việc, móc cẩu nên được đặt ở đâu?",
     "options": [
-      "Khi thấy vật nặng hơn sức nâng của máy hoặc dây buộc không an toàn.",
-      "Khi thấy trời sắp mưa.",
-      "Khi không thích người thợ móc cáp.",
-      "Khi muốn nghỉ giải lao."
+      "Để sát mặt đất",
+      "Nâng lên cao (cách sàn trên 2m) và đưa về vị trí đỗ quy định",
+      "Để ở giữa nhà xưởng",
+      "Treo vật nặng vào để giữ cáp căng"
     ],
-    "answer": "Khi thấy vật nặng hơn sức nâng của máy hoặc dây buộc không an toàn.",
-    "explain": "Người vận hành có quyền và trách nhiệm từ chối các lệnh vi phạm quy định an toàn."
+    "answer": "Nâng lên cao (cách sàn trên 2m) và đưa về vị trí đỗ quy định",
+    "explain": "Tránh gây cản trở cho người và phương tiện di chuyển dưới mặt đất khi máy nghỉ."
   },
   {
     "id": 96,
-    "question": "Khi di chuyển tải qua khu vực có máy móc đắt tiền, cần chú ý gì?",
+    "question": "Mục tiêu cao nhất của việc học vận hành cần trục và kỹ thuật treo tải là gì?",
     "options": [
-      "Nâng thật cao để không chạm vào.",
-      "Di chuyển cực chậm và có người cảnh giới, dẫn hướng ở dưới.",
-      "Yêu cầu thợ máy tắt máy.",
-      "Che bạt lên máy móc."
+      "Để được tăng lương",
+      "Đảm bảo an toàn tuyệt đối cho người, thiết bị và hàng hóa",
+      "Để lái xe nhanh hơn",
+      "Để biết cách sửa máy"
     ],
-    "answer": "Di chuyển cực chậm và có người cảnh giới, dẫn hướng ở dưới.",
-    "explain": "Đảm bảo tầm quan sát tối đa và sự phối hợp nhịp nhàng để tránh va chạm."
+    "answer": "Đảm bảo an toàn tuyệt đối cho người, thiết bị và hàng hóa",
+    "explain": "An toàn là yếu tố tiên quyết trong mọi hoạt động nâng hạ công nghiệp."
   },
   {
     "id": 97,
-    "question": "Người chưa có chứng chỉ vận hành cầu trục có được điều khiển máy không?",
+    "question": "Cấu trúc bảo vệ người lái khi xe lật (ROPS) có tác dụng gì?",
     "options": [
-      "Được, nếu có người giỏi đứng cạnh.",
-      "Tuyệt đối không, trừ trường hợp học viên đang thực hành có giáo viên kèm.",
-      "Được, nếu chỉ nâng hàng nhẹ.",
-      "Được, nếu là chủ xưởng."
+      "Làm xe đẹp hơn",
+      "Đảm bảo không gian sống sót cho người lái nếu xe bị lật",
+      "Giúp xe chạy nhanh hơn",
+      "Chống nắng mưa"
     ],
-    "answer": "Tuyệt đối không, trừ trường hợp học viên đang thực hành có giáo viên kèm.",
-    "explain": "Đây là công việc yêu cầu nghiêm ngặt về chứng chỉ chuyên môn theo pháp luật lao động."
+    "answer": "Đảm bảo không gian sống sót cho người lái nếu xe bị lật",
+    "explain": "Khung thép cường độ cao bảo vệ cabin không bị bẹp rúm khi va chạm."
   },
   {
     "id": 98,
-    "question": "Tại sao phải kiểm tra phanh nâng hạ khi bắt đầu ca làm việc?",
+    "question": "Tại sao phải kiểm tra độ mòn của má phanh định kỳ?",
     "options": [
-      "Để kiểm tra xem phanh có kêu không.",
-      "Để đảm bảo phanh giữ được tải trọng, ngăn ngừa trôi tải tự do.",
-      "Để làm nóng động cơ.",
-      "Để kiểm tra điện áp."
+      "Để phanh không kêu",
+      "Đảm bảo phanh có đủ lực giữ hàng, không bị trôi hàng",
+      "Để thay phanh mới cho đẹp",
+      "Không cần kiểm tra"
     ],
-    "answer": "Để đảm bảo phanh giữ được tải trọng, ngăn ngừa trôi tải tự do.",
-    "explain": "Phanh là chốt chặn an toàn quan trọng nhất để giữ vật cố định trên không."
+    "answer": "Đảm bảo phanh có đủ lực giữ hàng, không bị trôi hàng",
+    "explain": "Má phanh mòn quá mức làm mất tác dụng hãm, cực kỳ nguy hiểm."
   },
   {
     "id": 99,
-    "question": "Khi kết thúc công việc, móc cẩu nên được đặt ở đâu?",
+    "question": "Khi nâng hàng gần vách tường, cần lưu ý điều gì?",
     "options": [
-      "Để sát mặt đất.",
-      "Nâng lên cao (cách sàn trên 2m) và đưa về vị trí đỗ quy định.",
-      "Để ở giữa nhà xưởng.",
-      "Treo vật nặng vào để giữ cáp căng."
+      "Vách tường có sơn không",
+      "Khoảng cách giữa đuôi xe (đối trọng) và vách tường để tránh kẹp người",
+      "Không cần lưu ý",
+      "Nâng thật sát tường"
     ],
-    "answer": "Nâng lên cao (cách sàn trên 2m) và đưa về vị trí đỗ quy định.",
-    "explain": "Tránh gây cản trở và va chạm cho người, phương tiện di chuyển dưới sàn khi máy nghỉ."
+    "answer": "Khoảng cách giữa đuôi xe (đối trọng) và vách tường để tránh kẹp người",
+    "explain": "Tránh tai nạn người bị kẹt giữa đuôi xe và vật cứng khi xe quay toa."
   },
   {
     "id": 100,
-    "question": "Mục tiêu cao nhất của việc học vận hành cầu trục và kỹ thuật treo tải là gì?",
+    "question": "Khi gặp đám cháy điện trên xe cẩu, dùng loại bình chữa cháy nào?",
     "options": [
-      "Lấy chứng chỉ đi làm.",
-      "Vận hành nhanh nhất có thể.",
-      "Đảm bảo an toàn tuyệt đối cho người, hàng hóa và thiết bị.",
-      "Để không bị phạt khi kiểm tra."
+      "Bình nước",
+      "Bình bột hóa học hoặc bình CO2",
+      "Đổ cát vào",
+      "Dùng cành cây dập"
     ],
-    "answer": "Đảm bảo an toàn tuyệt đối cho người, hàng hóa và thiết bị.",
-    "explain": "An toàn lao động là giá trị cốt lõi và mục tiêu cuối cùng của mọi quy trình kỹ thuật."
+    "answer": "Bình bột hóa học hoặc bình CO2",
+    "explain": "Nước dẫn điện sẽ làm tình trạng tồi tệ hơn và gây giật điện."
+  },
+  {
+    "id": 101,
+    "question": "Sau ca làm việc, vị trí đặt cần tốt nhất là?",
+    "options": [
+      "Để vươn dài ra đường",
+      "Thu gọn, hạ cần vào giá đỡ hoặc theo hướng dẫn của nhà sản xuất",
+      "Để nguyên vị trí cũ",
+      "Để cần cao nhất"
+    ],
+    "answer": "Thu gọn, hạ cần vào giá đỡ hoặc theo hướng dẫn của nhà sản xuất",
+    "explain": "Đảm bảo thiết bị ổn định trước tác động của thời tiết (gió, bão)."
   }
 ];
