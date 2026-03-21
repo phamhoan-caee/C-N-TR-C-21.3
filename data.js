@@ -1,4 +1,4 @@
-const craneQuestions = [
+const questionBank = [
   {
     "id": 1,
     "question": "Khi nâng vật nặng lên khỏi mặt đất từ 10-20cm, người vận hành phải làm gì?",
