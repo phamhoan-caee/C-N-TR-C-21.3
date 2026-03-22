@@ -179,11 +179,19 @@ function startTimer() {
 }
 
 // --- 10. NỘP BÀI ---
-async function submitQuiz() {
-    clearInterval(timerInterval);
-    let score = 0;
+async function submitQuiz(force = false) {
+    // 1. Kiểm tra nếu đã nộp rồi thì không chạy lại lệnh này
+    if (isSubmitted) return;
 
-    // Chấm điểm
+    // Xác nhận nộp bài (trừ trường hợp hết giờ tự nộp)
+    if (!force && !confirm("Bạn có chắc chắn muốn nộp bài?")) return;
+
+    // 2. KHÓA BÀI THI: Ngăn chọn đáp án và dừng đồng hồ
+    isSubmitted = true;
+    clearInterval(timerInterval);
+
+    let score = 0;
+    // Chấm điểm dựa trên dữ liệu studentAnswers
     studentAnswers.forEach(ans => {
         const originalQuestion = selectedQuestions[ans.qIndex];
         if (ans.selectedAnswer === originalQuestion.answer) {
@@ -192,27 +200,37 @@ async function submitQuiz() {
     });
 
     const status = score >= 25 ? "ĐẠT" : "KHÔNG ĐẠT";
-    
+    const studentName = document.getElementById('studentName').value;
+    const studentID = document.getElementById('studentID').value;
+
+    // 3. Thông báo kết quả cho học viên (Hình 12)
     alert(`Chúc mừng! Kết quả của bạn: ${score}/30 câu - Trạng thái: ${status}`);
 
-   // --- GỬI DỮ LIỆU VỀ GOOGLE SHEETS ---
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwNkK9MVz7IGECvsXJvqoN7gQXfHI189DLuMgy6m4_tc3W2W5lGD35hy5TmdbkNYAGJGA/exec';
+    // 4. GỬI DỮ LIỆU VỀ GOOGLE SHEETS
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxHba7BRXnFGH0MuCCGL4lYvWUU7xtYCKbpuRpKC0WDNgJMf5cIiNBw16-W3qMVHEtgEQ/exec';
     
-    const payload = {
-        name: document.getElementById('studentName').value, // Gửi cho cột HOTEN
-        id: document.getElementById('studentID').value,     // Gửi cho cột KHOA
-        score: score + "/30",                               // Gửi cho cột DIEM
-        status: status                                      // Gửi cho cột KETQUA
+   const payload = {
+        name: studentName,
+        id: studentID,
+        score: score + "/30",
+        status: status,
+        sheetName: "Ketquananghang" // Thêm tên tab để Script biết chỗ lưu
     };
 
-    fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    })
-    .then(() => {
+    try {
+        // Sử dụng await để đợi gửi xong dữ liệu mới thực hiện reload trang
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
         console.log("Đã gửi dữ liệu thành công");
-    })
-    .catch(error => console.error('Lỗi gửi Sheets:', error));
+    } catch (error) {
+        console.error('Lỗi gửi Sheets:', error);
+    }
+
+    // 5. CHUYỂN VỀ GIAO DIỆN ĐĂNG NHẬP
+    // Tải lại trang sẽ xóa sạch dữ liệu cũ và đưa học viên về màn hình bắt đầu
+    location.reload();
 }
