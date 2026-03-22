@@ -79,8 +79,8 @@ function showQuestion(index) {
         </div>
         
         <div class="navigation-btns">
-            <button class="btn-nav btn-prev" onclick="prevQuestion()" ${index === 0 ? 'style="visibility:hidden;"' : ''}>‹ TRƯỚC</button>
-            <button class="btn-nav btn-next" onclick="nextQuestion()">TIẾP ›</button>
+          <button id="prevBtn" class="btn-nav">TRƯỚC</button>
+    <button id="nextBtn" class="btn-nav">TIẾP</button>
         </div>
     `;
 
