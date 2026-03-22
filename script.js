@@ -1,276 +1,214 @@
-/* --- 1. BIẾN MÀU SẮC & CẤU HÌNH CHUNG --- */
-:root {
-    --caee-blue: #003399;      /* Màu xanh đậm chủ đạo (background) */
-    --header-blue: #0040cc;    /* Màu xanh thanh header */
-    --btn-orange: #ff6600;    /* Màu cam nút bấm */
-    --btn-blue: #3366ff;      /* Màu xanh nút điều hướng */
-    --bg-light: #f4f7f6;      /* Màu nền vùng câu hỏi và sidebar */
-    --text-dark: #333333;     /* Màu chữ chính */
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-    --transition: all 0.2s ease;
+// --- 1. CẤU HÌNH WEB APP URL ---
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwxGySySYeE0wsg-41K5lTQUYgL_beTxmCGagDfwQO1AUxLs_l8K4iGMgz-jKE9sxc/exec";
+
+// --- 2. BIẾN TRẠNG THÁI ---
+let selectedQuestions = []; // 30 câu ngẫu nhiên
+let studentAnswers = [];    /* Mảng lưu đáp án: [{qIndex:0, selectedAnswer:"A"}, ...] */
+let currentQuestionIndex = 0; // Câu hỏi đang hiển thị
+let timeLeft = 1200; // 20 phút (1200 giây)
+let timerInterval;
+
+// --- 3. HÀM BẮT ĐẦU THI ---
+function startQuiz() {
+    const name = document.getElementById('studentName').value.trim();
+    const id = document.getElementById('studentID').value.trim();
+
+    if (!name || !id) {
+        alert("Vui lòng nhập đủ Họ tên và Khóa!");
+        return;
+    }
+
+    // Kiểm tra dữ liệu
+    if (typeof questionBank === 'undefined' || questionBank.length < 30) {
+        alert("Lỗi: Không tìm thấy file data.js hoặc ngân hàng câu hỏi quá ít!");
+        return;
+    }
+
+    // Chọn 30 câu ngẫu nhiên từ data.js
+    selectedQuestions = [...questionBank].sort(() => 0.5 - Math.random()).slice(0, 30);
+    studentAnswers = []; // Xóa đáp án cũ
+
+    // Hiển thị giao diện làm bài
+    document.getElementById('start-screen').style.display = 'none';
+    document.getElementById('caee-header').style.display = 'flex';
+    document.getElementById('quiz-screen').style.display = 'grid';
+
+    // Cập nhật thông tin học viên trên Header
+    document.getElementById('header-student-info').innerText = `Học viên: ${name}`;
+
+    // Tạo sơ đồ câu hỏi (bên phải)
+    generateNavigationGrid();
+    
+    // Hiển thị câu đầu tiên
+    showQuestion(0);
+    
+    // Chạy đồng hồ
+    startTimer();
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+// --- 4. HÀM HIỂN THỊ CÂU HỎI TỪNG CÂU ---
+function showQuestion(index) {
+    currentQuestionIndex = index;
+    const q = selectedQuestions[index];
+    const content = document.getElementById('quiz-content');
+    
+    // Tìm đáp án học viên đã chọn trước đó (nếu có)
+    const storedAnswer = studentAnswers.find(item => item.qIndex === index);
 
-body {
-    background-color: var(--caee-blue); /* Nền xanh đậm toàn màn hình */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-dark);
-    line-height: 1.5;
-    overflow-x: hidden;
-    padding-top: 60px; /* Chừa chỗ cho header fixed */
+    let optionsHtml = "";
+    // Ánh xạ options thành giao diện
+    const optionLabels = ['A', 'B', 'C', 'D'];
+    q.options.forEach((opt, idx) => {
+        const isSelected = storedAnswer && storedAnswer.selectedAnswer === opt;
+        optionsHtml += `
+            <div class="option-item ${isSelected ? 'selected' : ''}" onclick="selectAnswer(this, ${index}, '${opt}')">
+                <input type="radio" name="opt" ${isSelected ? 'checked' : ''} style="display:none;">
+                <label class="option-label">${opt}</label>
+            </div>`;
+    });
+
+    // Tạo nội dung HTML
+    content.innerHTML = `
+        <div class="question-header"> 
+            <span class="q-count">Câu ${index + 1}/30</span>
+        </div>
+        <div class="question-text">${q.question}</div>
+        
+        <div class="options-group">
+            ${optionsHtml}
+        </div>
+        
+        <div class="navigation-btns">
+            <button class="btn-nav btn-prev" onclick="prevQuestion()" ${index === 0 ? 'style="visibility:hidden;"' : ''}>‹ TRƯỚC</button>
+            <button class="btn-nav btn-next" onclick="nextQuestion()">TIẾP ›</button>
+        </div>
+    `;
+
+    // Cập nhật trạng thái lưới câu hỏi (Màu Cam khi đang chọn)
+    updateGridStatus(index);
 }
 
-/* --- 2. HEADER BAR (THANH TRÊN CÙNG) --- */
-.caee-header {
-    background-color: var(--header-blue);
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+// --- 5. HÀM XỬ LÝ CHỌN ĐÁP ÁN ---
+function selectAnswer(element, qIndex, answer) {
+    // Lưu đáp án vào mảng
+    const existingIndex = studentAnswers.findIndex(item => item.qIndex === qIndex);
+    if (existingIndex !== -1) {
+        studentAnswers[existingIndex].selectedAnswer = answer;
+    } else {
+        studentAnswers.push({ qIndex: qIndex, selectedAnswer: answer });
+    }
+
+    // Cập nhật giao diện (màu xanh cho đáp án được chọn)
+    const options = element.parentElement.querySelectorAll('.option-item');
+    options.forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+
+    // Cập nhật sơ đồ câu hỏi (Màu Xanh khi đã trả lời)
+    updateGridStatus(qIndex);
 }
 
-.header-title { display: flex; align-items: center; gap: 8px; font-weight: bold; font-size: 0.95rem; }
-.header-info { display: flex; align-items: center; gap: 15px; }
-.student-id-display { font-size: 0.85rem; opacity: 0.9; }
-
-.timer-box {
-    background-color: #ff3333; /* Màu đỏ cho đồng hồ */
-    padding: 4px 15px;
-    border-radius: 4px;
-    font-weight: bold;
-    font-family: monospace;
-    font-size: 1.1rem;
+// --- 6. HÀM ĐIỀU HƯỚNG ---
+function nextQuestion() {
+    if (currentQuestionIndex < selectedQuestions.length - 1) {
+        showQuestion(currentQuestionIndex + 1);
+    } else {
+        alert("Bạn đã ở câu hỏi cuối cùng. Nhấn NỘP BÀI.");
+    }
 }
 
-/* --- 3. MÀN HÌNH CHÀO MỪNG (WELCOME PAGE) --- */
-#start-screen {
-    min-height: calc(100vh - 60px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        showQuestion(currentQuestionIndex - 1);
+    }
 }
 
-.welcome-container {
-    background: white;
-    width: 90%;
-    max-width: 550px;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+// --- 7. TẠO SƠ ĐỒ CÂU HỎI (GRID) ---
+function generateNavigationGrid() {
+    const grid = document.getElementById('nav-grid');
+    grid.innerHTML = "";
+    selectedQuestions.forEach((q, i) => {
+        const item = document.createElement('div');
+        item.classList.add('grid-item');
+        item.id = `grid-item-${i}`;
+        item.innerText = i + 1;
+        item.onclick = () => showQuestion(i);
+        grid.appendChild(item);
+    });
 }
 
-/* Cột bên trái (Xanh) */
-.welcome-left {
-    background-color: var(--caee-blue);
-    color: white;
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-}
-.welcome-left img { width: 50px; margin-bottom: 15px; }
-.welcome-left h5 { font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+// --- 8. CẬP NHẬT TRẠNG THÁI MÀU GRID ---
+function updateGridStatus(currentIndex) {
+    for (let i = 0; i < 30; i++) {
+        const item = document.getElementById(`grid-item-${i}`);
+        if (!item) continue;
 
-/* Cột bên trái (Xanh) */
-.welcome-right {
-    width: 65%;
-    padding: 30px;
-}
-.school-name { font-weight: bold; color: #333; font-size: 1rem; margin-bottom: 5px; text-align: start; }
-.faculty-name { color: var(--header-blue); font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; text-align: start; }
+        // Reset trạng thái
+        item.classList.remove('active', 'answered');
 
-.form-group { margin-bottom: 15px; text-align: start; }
-.form-group label { font-size: 0.8rem; color: #777; font-weight: bold; }
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    transition: var(--transition);
-}
-.form-control:focus { border-color: var(--header-blue); background-color: white; outline: none; }
+        // Màu xanh cho câu đã trả lời
+        const isAnswered = studentAnswers.some(ans => ans.qIndex === i);
+        if (isAnswered) {
+            item.classList.add('answered');
+        }
 
-.btn-start {
-    background-color: var(--btn-orange);
-    color: white;
-    border: none;
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-top: 10px;
-}
-.btn-start:hover { background-color: #e65c00; }
-
-.footer-welcome { font-size: 0.7rem; color: #bbb; margin-top: 25px; text-align: center; }
-
-/* --- 4. CẤU TRÚC MÀN HÌNH THI (MAIN EXAM PAGE) --- */
-#quiz-screen {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 280px; /* Cột câu hỏi rộng, cột lưới hẹp */
-    gap: 20px;
-    max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
+        // Màu cam cho câu đang chọn
+        if (i === currentIndex) {
+            item.classList.add('active');
+        }
+    }
 }
 
-/* Vùng câu hỏi */
-#quiz-content {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: var(--shadow-sm);
+// --- 9. ĐỒNG HỒ ĐẾM NGƯỢC ---
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        let min = Math.floor(timeLeft / 60);
+        let sec = timeLeft % 60;
+        document.getElementById('timer').innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert("Hết giờ làm bài!");
+            submitQuiz();
+        }
+    }, 1000);
 }
 
-.question-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.subject-badge { background: #e6f0fa; color: var(--caee-blue); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
-.q-count { color: #999; font-size: 0.85rem; }
+// --- 10. NỘP BÀI ---
+async function submitQuiz() {
+    clearInterval(timerInterval);
+    let score = 0;
 
-.question-text { font-size: 1.1rem; font-weight: bold; margin-bottom: 25px; color: #222; }
+    // Chấm điểm
+    studentAnswers.forEach(ans => {
+        const originalQuestion = selectedQuestions[ans.qIndex];
+        if (ans.selectedAnswer === originalQuestion.answer) {
+            score++;
+        }
+    });
 
-/* Tùy chỉnh ô đáp án */
-.option-item {
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 15px 20px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-.option-item:hover { background-color: #fafafa; border-color: #ddd; }
-.option-item.selected { background-color: #e6f0fa; border-color: var(--caee-blue); }
-.option-label { color: #555; font-size: 0.95rem; flex: 1; }
+    const status = score >= 25 ? "ĐẠT" : "KHÔNG ĐẠT";
+    
+    alert(`Chúc mừng! Kết quả của bạn: ${score}/30 câu - Trạng thái: ${status}`);
 
-/* Vùng nút điều hướng */
-.navigation-btns { display: flex; gap: 10px; margin-top: 30px; }
-.btn-nav {
-    padding: 8px 18px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: var(--transition);
-    border: 1px solid transparent;
-}
-.btn-prev { background: white; color: #999; border-color: #eee; }
-.btn-prev:hover { border-color: #ccc; color: #777; }
-.btn-next { background: var(--btn-blue); color: white; margin-left: auto; } /* Đẩy nút Tiếp sang phải */
-.btn-next:hover { background: #0044cc; }
+   // --- GỬI DỮ LIỆU VỀ GOOGLE SHEETS ---
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzFDyujjPPP5EezT_-4F4vs9-9B77c_dNmwdWP5TyolKzj39Im9aT0ybRauIt_R6Bev/exec';
+    
+    const payload = {
+        name: document.getElementById('studentName').value, // Gửi cho cột HOTEN
+        id: document.getElementById('studentID').value,     // Gửi cho cột KHOA
+        score: score + "/30",                               // Gửi cho cột DIEM
+        status: status                                      // Gửi cho cột KETQUA
+    };
 
-/* --- 5. CỘT SƠ ĐỒ CÂU HỎI (RIGHT SIDEBAR) --- */
-.sidebar-right { display: flex; flex-direction: column; gap: 20px; }
-
-.question-grid-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: var(--shadow-sm);
-}
-.sidebar-title { font-size: 0.85rem; font-weight: bold; color: #666; margin-bottom: 15px; }
-
-/* Lưới 5x6 */
-.q-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
-}
-.grid-item {
-    background: #fdfdfd;
-    border: 1px solid #eee;
-    color: var(--caee-blue);
-    height: 38px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-.grid-item:hover { border-color: var(--caee-blue); }
-.grid-item.answered { background: var(--caee-blue); color: white; border-color: var(--caee-blue); }
-.grid-item.active { border: 2px solid var(--btn-orange); background: white; color: var(--caee-blue); }
-
-/* Vùng trạng thái màu */
-.status-legend-card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    box-shadow: var(--shadow-sm);
-}
-.legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot-green { background-color: var(--caee-blue); } /* Màu xanh trong hình */
-.dot-orange { background-color: var(--btn-orange); }
-
-/* Nút nộp bài */
-.btn-submit {
-    background-color: #ff3333; /* Đỏ rực rỡ */
-    color: white;
-    border: none;
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: var(--transition);
-}
-.btn-submit:hover { background-color: #cc0000; }
-
-/* --- 6. HỖ TRỢ ĐIỆN THOẠI (RESPONSIVE) --- */
-@media (max-width: 992px) {
-    #quiz-screen { grid-template-columns: 1fr; } /* Chuyển thành 1 cột */
-    .welcome-container { flex-direction: column; width: 95%; }
-    .welcome-left, .welcome-right { width: 100%; padding: 25px; }
-    .header-info { gap: 10px; }
-    .student-id-display { font-size: 0.75rem; padding-right: 10px; }
-    .timer-box { font-size: 0.95rem; padding: 4px 10px; }
-}
-/* --- Căn giữa tiêu đề (Thêm vào cuối file) --- */
-.welcome-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.school-name {
-    width: 100%;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-}
-
-.faculty-name {
-    width: 100%;
-    font-weight: bold;
-    color: #0056b3;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(() => {
+        console.log("Đã gửi dữ liệu thành công");
+    })
+    .catch(error => console.error('Lỗi gửi Sheets:', error));
 }
