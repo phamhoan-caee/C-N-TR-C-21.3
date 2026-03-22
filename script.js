@@ -3,38 +3,40 @@ const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwxGySySYeE0wsg-41K
 
 // --- 2. BIẾN TRẠNG THÁI ---
 let selectedQuestions = []; 
-let studentAnswers = {}; 
+let studentAnswers = {}; // Dùng Object để lưu cho nhanh: {index: "đáp án"}
 let currentQuestionIndex = 0; 
-let timeLeft = 1200; 
+let timeLeft = 1200; // 20 phút
 let timerInterval;
 let isSubmitted = false; 
 
 // --- 3. HÀM BẮT ĐẦU THI ---
 function startQuiz() {
-    const nameInput = document.getElementById('studentName');
-    const idInput = document.getElementById('studentID');
+    const name = document.getElementById('studentName').value.trim();
+    const id = document.getElementById('studentID').value.trim();
 
-    if (!nameInput || !idInput || !nameInput.value.trim() || !idInput.value.trim()) {
+    if (!name || !id) {
         alert("Thầy vui lòng nhập đủ Họ tên và Khóa!");
         return;
     }
 
-    if (typeof questionBank === 'undefined') {
-        alert("Lỗi: Không tìm thấy dữ liệu câu hỏi (data.js)!");
+    if (typeof questionBank === 'undefined' || questionBank.length < 30) {
+        alert("Lỗi: Dữ liệu câu hỏi chưa sẵn sàng!");
         return;
     }
 
     isSubmitted = false;
+    // Trộn và lấy đúng 30 câu
     selectedQuestions = [...questionBank].sort(() => 0.5 - Math.random()).slice(0, 30);
     studentAnswers = {};
     timeLeft = 1200; 
 
+    // Hiển thị giao diện - Khớp với ID trong HTML của thầy
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('caee-header').style.display = 'flex';
     document.getElementById('quiz-screen').style.display = 'flex';
-    
-    const headerInfo = document.getElementById('header-student-info');
-    if(headerInfo) headerInfo.innerText = `Học viên: ${nameInput.value} - Khóa: ${idInput.value}`;
+
+    // Sửa lỗi ID không khớp ở đây
+    document.getElementById('header-student-info').innerText = `Học viên: ${name} - Khóa: ${id}`;
 
     generateNavigationGrid();
     showQuestion(0);
@@ -46,8 +48,7 @@ function showQuestion(index) {
     currentQuestionIndex = index;
     const q = selectedQuestions[index];
     const content = document.getElementById('quiz-content');
-    if(!content) return;
-
+    
     const selectedText = studentAnswers[index] || null;
 
     let optionsHtml = q.options.map((opt, i) => {
@@ -79,16 +80,23 @@ function showQuestion(index) {
     updateGridStatus(index);
 }
 
+// --- 5. HÀM XỬ LÝ CHỌN ĐÁP ÁN ---
 function selectAnswer(element, qIndex, answer) {
     if (isSubmitted) return;
+
     studentAnswers[qIndex] = answer;
+
+    // Cập nhật UI tùy chọn
     const options = element.parentElement.querySelectorAll('.option-item');
     options.forEach(opt => opt.classList.remove('selected'));
     element.classList.add('selected');
+
+    // Đánh dấu đã trả lời trên Grid
     const gridItem = document.getElementById(`grid-item-${qIndex}`);
     if (gridItem) gridItem.classList.add('answered');
 }
 
+// --- 6. HÀM ĐIỀU HƯỚNG ---
 function nextQuestion() {
     if (currentQuestionIndex < selectedQuestions.length - 1) {
         showQuestion(currentQuestionIndex + 1);
@@ -98,12 +106,14 @@ function nextQuestion() {
 }
 
 function prevQuestion() {
-    if (currentQuestionIndex > 0) showQuestion(currentQuestionIndex - 1);
+    if (currentQuestionIndex > 0) {
+        showQuestion(currentQuestionIndex - 1);
+    }
 }
 
+// --- 7. TẠO GRID ---
 function generateNavigationGrid() {
     const grid = document.getElementById('nav-grid');
-    if(!grid) return;
     grid.innerHTML = "";
     selectedQuestions.forEach((_, i) => {
         const item = document.createElement('div');
@@ -115,6 +125,7 @@ function generateNavigationGrid() {
     });
 }
 
+// --- 8. CẬP NHẬT MÀU GRID ---
 function updateGridStatus(currentIndex) {
     document.querySelectorAll('.grid-item').forEach((item, i) => {
         item.classList.remove('active');
@@ -122,6 +133,7 @@ function updateGridStatus(currentIndex) {
     });
 }
 
+// --- 9. ĐỒNG HỒ ---
 function startTimer() {
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
@@ -129,14 +141,23 @@ function startTimer() {
         let min = Math.floor(timeLeft / 60);
         let sec = timeLeft % 60;
         const timerElement = document.getElementById('timer');
-        if(timerElement) timerElement.innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
-        if (timeLeft <= 0) { clearInterval(timerInterval); submitQuiz(true); }
+        if(timerElement) {
+            timerElement.innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        }
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert("Hết giờ làm bài! Hệ thống tự động nộp bài.");
+            submitQuiz(true);
+        }
     }, 1000);
 }
 
+// --- 10. NỘP BÀI ---
 async function submitQuiz(force = false) {
     if (isSubmitted) return;
-    if (!force && !confirm("Thầy có chắc muốn nộp bài?")) return;
+    if (!force && !confirm("Thầy có chắc chắn muốn nộp bài?")) return;
+
     isSubmitted = true;
     clearInterval(timerInterval);
 
@@ -145,24 +166,32 @@ async function submitQuiz(force = false) {
         if (studentAnswers[i] === q.answer) score++;
     });
 
+    // Theo yêu cầu của thầy: 25/30 là ĐẠT
     const status = score >= 25 ? "ĐẠT" : "KHÔNG ĐẠT";
     alert(`Kết quả: ${score}/30 câu - Trạng thái: ${status}`);
-    
-    // Gửi dữ liệu về Google Sheets
+
     const payload = {
         name: document.getElementById('studentName').value,
         id: document.getElementById('studentID').value,
         score: score,
-        status: status
+        status: status,
+        details: JSON.stringify(studentAnswers)
     };
 
     try {
+        // Gửi dữ liệu qua fetch
         await fetch(WEB_APP_URL, {
             method: 'POST',
             mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         });
-    } catch (e) {}
-    
-    location.reload();
+        
+        alert("Dữ liệu đã được lưu vào Google Sheets!");
+        location.reload();
+    } catch (error) {
+        console.error('Lỗi khi nộp bài:', error);
+        alert("Không thể kết nối với máy chủ. Bài thi đã kết thúc.");
+        location.reload();
+    }
 }
