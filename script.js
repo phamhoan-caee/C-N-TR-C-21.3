@@ -78,9 +78,9 @@ function showQuestion(index) {
             ${optionsHtml}
         </div>
         
-       <div class="quiz-navigation">
-    <button id="prevBtn" class="btn-nav">‹ CÂU HỎI TRƯỚC</button>
-    <button id="nextBtn" class="btn-nav">CÂU HỎI TIẾP THEO ›</button>
+     <div class="navigation-container">
+    <button id="prevBtn" class="btn-blue">‹ CÂU HỎI TRƯỚC</button>
+    <button id="nextBtn" class="btn-blue">CÂU HỎI TIẾP THEO ›</button>
 </div>
     `;
 
