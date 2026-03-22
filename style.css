@@ -163,31 +163,44 @@ body {
 .option-item.selected { background-color: #e6f0fa; border-color: var(--caee-blue); }
 .option-label { color: #555; font-size: 0.95rem; flex: 1; }
 
-/* Vùng nút điều hướng */
-.navigation-btns { display: flex; gap: 10px; margin-top: 30px; }
+/* Vùng nút điều hướng: Thêm justify-content để ép 2 nút ra 2 đầu */
+.navigation-btns { 
+    display: flex; 
+    justify-content: space-between; /* Đẩy nút đầu sang trái, nút cuối sang phải */
+    width: 100%; /* Đảm bảo khung nút giãn hết chiều ngang câu hỏi */
+    margin-top: 30px; 
+}
+
 .btn-nav {
-    padding: 8px 18px;
+    padding: 10px 20px; /* Tăng nhẹ kích thước cho dễ bấm trên điện thoại */
     border-radius: 4px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
     transition: var(--transition);
-    border: 1px solid transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-/* Nút TRƯỚC: Cho nằm sát lề trái */
+
+/* Nút TRƯỚC: Màu xanh */
 .btn-prev { 
     background-color: var(--btn-blue); 
     color: white; 
-    margin-right: auto; /* Lệnh này đẩy nút TIẾP sang phải */
 }
 
-/* Nút TIẾP: Cho nằm sát lề phải */
+/* Nút TIẾP: Màu xanh */
 .btn-next { 
     background-color: var(--btn-blue); 
     color: white; 
-    margin-left: 0; 
 }
 
+/* Hiệu ứng khi di chuột */
+.btn-prev:hover, .btn-next:hover {
+    background-color: #0044cc;
+    opacity: 0.9;
+}
 /* --- 5. CỘT SƠ ĐỒ CÂU HỎI (RIGHT SIDEBAR) --- */
 .sidebar-right { display: flex; flex-direction: column; gap: 20px; }
 
