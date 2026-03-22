@@ -2,12 +2,7 @@ const questionBank = [
   {
     "id": 1,
     "question": "Khi nâng vật nặng lên khỏi mặt đất từ 10-20cm, người vận hành phải làm gì?",
-    "options": [
-      "Nâng thật nhanh lên cao",
-      "Dừng lại kiểm tra độ ổn định và phanh",
-      "Xoay cần ngay lập tức",
-      "Hạ xuống và nghỉ"
-    ],
+    "options": ["Nâng thật nhanh lên cao", "Dừng lại kiểm tra độ ổn định và phanh", "Xoay cần ngay lập tức", "Hạ xuống và nghỉ"],
     "answer": "Dừng lại kiểm tra độ ổn định và phanh",
     "explain": "Thử tải tĩnh tại chỗ để đảm bảo phanh và cáp chịu được lực thực tế."
   },
