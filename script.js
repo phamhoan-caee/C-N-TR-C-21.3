@@ -78,10 +78,14 @@ function showQuestion(index) {
             ${optionsHtml}
         </div>
         
-        <div class="navigation-btns">
-            <button class="btn-nav btn-prev" onclick="prevQuestion()" ${index === 0 ? 'style="visibility:hidden;"' : ''}>‹ TRƯỚC</button>
-            <button class="btn-nav btn-next" onclick="nextQuestion()">TIẾP ›</button>
-        </div>
+       <div class="navigation-btns">
+    <button class="btn-nav btn-next" onclick="prevQuestion()" 
+        ${index === 0 ? 'style="visibility:hidden;"' : ''}>‹ TRƯỚC</button>
+    
+    <button class="btn-nav btn-next" onclick="nextQuestion()">
+        ${index === selectedQuestions.length - 1 ? 'NỘP BÀI ›' : 'TIẾP ›'}
+    </button>
+</div>
     `;
 
     // Cập nhật trạng thái lưới câu hỏi (Màu Cam khi đang chọn)
