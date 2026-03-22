@@ -1,5 +1,5 @@
 // --- 1. CẤU HÌNH WEB APP URL ---
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwxGySySYeE0wsg-41K5lTQUYgL_beTxmCGagDfwQO1AUxLs_l8K4iGMgz-jKE9sxc/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby2gzw2e6EIFpEiKGdkWDKiSMdq6S0R-f2nVNvSR4ifXSX2sQPz3Qx2sUT6EfQZYZh18A/exec";
 
 // --- 2. BIẾN TRẠNG THÁI ---
 let selectedQuestions = []; // 30 câu ngẫu nhiên
