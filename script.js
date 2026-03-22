@@ -2,12 +2,11 @@
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwxGySySYeE0wsg-41K5lTQUYgL_beTxmCGagDfwQO1AUxLs_l8K4iGMgz-jKE9sxc/exec";
 
 // --- 2. BIẾN TRẠNG THÁI ---
-let selectedQuestions = []; 
-let studentAnswers = {}; 
-let currentQuestionIndex = 0; 
-let timeLeft = 1200; 
+let selectedQuestions = []; // 30 câu ngẫu nhiên
+let studentAnswers = [];    /* Mảng lưu đáp án: [{qIndex:0, selectedAnswer:"A"}, ...] */
+let currentQuestionIndex = 0; // Câu hỏi đang hiển thị
+let timeLeft = 1200; // 20 phút (1200 giây)
 let timerInterval;
-let isSubmitted = false; 
 
 // --- 3. HÀM BẮT ĐẦU THI ---
 function startQuiz() {
