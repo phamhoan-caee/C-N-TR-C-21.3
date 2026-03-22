@@ -889,7 +889,7 @@ const questionBank = [
     "answer": "Ngăn ngừa động cơ bị quá nhiệt dẫn đến bó máy",
     "explain": "Động cơ máy cẩu làm việc ở cường độ cao, hệ thống làm mát cực kỳ quan trọng."
   },
-  {
+ {
     "id": 76,
     "question": "Khi thao tác 'Thu cần' (Boom Retract), sức nâng của máy thay đổi thế nào?",
     "options": ["Giảm đi", "Tăng lên", "Giữ nguyên", "Làm máy chạy nhanh hơn"],
