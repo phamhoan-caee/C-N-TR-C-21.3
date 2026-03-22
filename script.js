@@ -2,131 +2,110 @@
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwxGySySYeE0wsg-41K5lTQUYgL_beTxmCGagDfwQO1AUxLs_l8K4iGMgz-jKE9sxc/exec";
 
 // --- 2. BIẾN TRẠNG THÁI ---
-let selectedQuestions = []; // 30 câu ngẫu nhiên
-let studentAnswers = [];    /* Mảng lưu đáp án: [{qIndex:0, selectedAnswer:"A"}, ...] */
-let currentQuestionIndex = 0; // Câu hỏi đang hiển thị
-let timeLeft = 1200; // 20 phút (1200 giây)
+let selectedQuestions = []; 
+let studentAnswers = {}; 
+let currentQuestionIndex = 0; 
+let timeLeft = 1200; 
 let timerInterval;
+let isSubmitted = false; 
 
 // --- 3. HÀM BẮT ĐẦU THI ---
 function startQuiz() {
-    const name = document.getElementById('studentName').value.trim();
-    const id = document.getElementById('studentID').value.trim();
+    const nameInput = document.getElementById('studentName');
+    const idInput = document.getElementById('studentID');
 
-    if (!name || !id) {
-        alert("Vui lòng nhập đủ Họ tên và Khóa!");
+    if (!nameInput || !idInput || !nameInput.value.trim() || !idInput.value.trim()) {
+        alert("Thầy vui lòng nhập đủ Họ tên và Khóa!");
         return;
     }
 
-    // Kiểm tra dữ liệu
-    if (typeof questionBank === 'undefined' || questionBank.length < 30) {
-        alert("Lỗi: Không tìm thấy file data.js hoặc ngân hàng câu hỏi quá ít!");
+    if (typeof questionBank === 'undefined') {
+        alert("Lỗi: Không tìm thấy dữ liệu câu hỏi (data.js)!");
         return;
     }
 
-    // Chọn 30 câu ngẫu nhiên từ data.js
+    isSubmitted = false;
     selectedQuestions = [...questionBank].sort(() => 0.5 - Math.random()).slice(0, 30);
-    studentAnswers = []; // Xóa đáp án cũ
+    studentAnswers = {};
+    timeLeft = 1200; 
 
-    // Hiển thị giao diện làm bài
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('caee-header').style.display = 'flex';
-    document.getElementById('quiz-screen').style.display = 'grid';
+    document.getElementById('quiz-screen').style.display = 'flex';
+    
+    const headerInfo = document.getElementById('header-student-info');
+    if(headerInfo) headerInfo.innerText = `Học viên: ${nameInput.value} - Khóa: ${idInput.value}`;
 
-    // Cập nhật thông tin học viên trên Header
-    document.getElementById('header-student-info').innerText = `Học viên: ${name}`;
-
-    // Tạo sơ đồ câu hỏi (bên phải)
     generateNavigationGrid();
-    
-    // Hiển thị câu đầu tiên
     showQuestion(0);
-    
-    // Chạy đồng hồ
     startTimer();
 }
 
-// --- 4. HÀM HIỂN THỊ CÂU HỎI TỪNG CÂU ---
+// --- 4. HÀM HIỂN THỊ CÂU HỎI ---
 function showQuestion(index) {
     currentQuestionIndex = index;
     const q = selectedQuestions[index];
     const content = document.getElementById('quiz-content');
-    
-    // Tìm đáp án học viên đã chọn trước đó (nếu có)
-    const storedAnswer = studentAnswers.find(item => item.qIndex === index);
+    if(!content) return;
 
-    let optionsHtml = "";
-    // Ánh xạ options thành giao diện
-    const optionLabels = ['A', 'B', 'C', 'D'];
-    q.options.forEach((opt, idx) => {
-        const isSelected = storedAnswer && storedAnswer.selectedAnswer === opt;
-        optionsHtml += `
-            <div class="option-item ${isSelected ? 'selected' : ''}" onclick="selectAnswer(this, ${index}, '${opt}')">
-                <input type="radio" name="opt" ${isSelected ? 'checked' : ''} style="display:none;">
-                <label class="option-label">${opt}</label>
+    const selectedText = studentAnswers[index] || null;
+
+    let optionsHtml = q.options.map((opt, i) => {
+        const isSelected = (opt === selectedText);
+        return `
+            <div class="option-item ${isSelected ? 'selected' : ''}" 
+                 onclick="selectAnswer(this, ${index}, \`${opt.replace(/`/g, '\\`')}\`)">
+                <span class="opt-prefix">${String.fromCharCode(65 + i)}</span>
+                <span class="opt-text">${opt}</span>
             </div>`;
-    });
+    }).join('');
 
-    // Tạo nội dung HTML
     content.innerHTML = `
-        <div class="question-header"> 
-            <span class="q-count">Câu ${index + 1}/30</span>
-        </div>
-        <div class="question-text">${q.question}</div>
-        
-        <div class="options-group">
-            ${optionsHtml}
-        </div>
-        
-        <div class="navigation-btns">
-            <button class="btn-nav btn-prev" onclick="prevQuestion()" ${index === 0 ? 'style="visibility:hidden;"' : ''}>‹ TRƯỚC</button>
-            <button class="btn-nav btn-next" onclick="nextQuestion()">TIẾP ›</button>
+        <div class="question-card">
+            <div class="question-header"> 
+                <span class="q-count">Câu hỏi ${index + 1}/30</span> 
+            </div>
+            <div class="question-text">${q.question}</div>
+            <div class="options-list">${optionsHtml}</div>
+            <div class="navigation-btns">
+                <button class="btn-nav" onclick="prevQuestion()" 
+                    ${index === 0 ? 'style="visibility:hidden;"' : ''}>‹ TRƯỚC</button>
+                <button class="btn-nav" onclick="nextQuestion()">
+                    ${index === selectedQuestions.length - 1 ? 'NỘP BÀI ›' : 'TIẾP ›'}
+                </button>
+            </div>
         </div>
     `;
-
-    // Cập nhật trạng thái lưới câu hỏi (Màu Cam khi đang chọn)
     updateGridStatus(index);
 }
 
-// --- 5. HÀM XỬ LÝ CHỌN ĐÁP ÁN ---
 function selectAnswer(element, qIndex, answer) {
-    // Lưu đáp án vào mảng
-    const existingIndex = studentAnswers.findIndex(item => item.qIndex === qIndex);
-    if (existingIndex !== -1) {
-        studentAnswers[existingIndex].selectedAnswer = answer;
-    } else {
-        studentAnswers.push({ qIndex: qIndex, selectedAnswer: answer });
-    }
-
-    // Cập nhật giao diện (màu xanh cho đáp án được chọn)
+    if (isSubmitted) return;
+    studentAnswers[qIndex] = answer;
     const options = element.parentElement.querySelectorAll('.option-item');
     options.forEach(opt => opt.classList.remove('selected'));
     element.classList.add('selected');
-
-    // Cập nhật sơ đồ câu hỏi (Màu Xanh khi đã trả lời)
-    updateGridStatus(qIndex);
+    const gridItem = document.getElementById(`grid-item-${qIndex}`);
+    if (gridItem) gridItem.classList.add('answered');
 }
 
-// --- 6. HÀM ĐIỀU HƯỚNG ---
 function nextQuestion() {
     if (currentQuestionIndex < selectedQuestions.length - 1) {
         showQuestion(currentQuestionIndex + 1);
     } else {
-        alert("Bạn đã ở câu hỏi cuối cùng. Nhấn NỘP BÀI.");
+        submitQuiz();
     }
 }
 
 function prevQuestion() {
-    if (currentQuestionIndex > 0) {
-        showQuestion(currentQuestionIndex - 1);
-    }
+    if (currentQuestionIndex > 0) showQuestion(currentQuestionIndex - 1);
 }
 
-// --- 7. TẠO SƠ ĐỒ CÂU HỎI (GRID) ---
 function generateNavigationGrid() {
     const grid = document.getElementById('nav-grid');
+    if(!grid) return;
     grid.innerHTML = "";
-    selectedQuestions.forEach((q, i) => {
+    selectedQuestions.forEach((_, i) => {
         const item = document.createElement('div');
         item.classList.add('grid-item');
         item.id = `grid-item-${i}`;
@@ -136,79 +115,54 @@ function generateNavigationGrid() {
     });
 }
 
-// --- 8. CẬP NHẬT TRẠNG THÁI MÀU GRID ---
 function updateGridStatus(currentIndex) {
-    for (let i = 0; i < 30; i++) {
-        const item = document.getElementById(`grid-item-${i}`);
-        if (!item) continue;
-
-        // Reset trạng thái
-        item.classList.remove('active', 'answered');
-
-        // Màu xanh cho câu đã trả lời
-        const isAnswered = studentAnswers.some(ans => ans.qIndex === i);
-        if (isAnswered) {
-            item.classList.add('answered');
-        }
-
-        // Màu cam cho câu đang chọn
-        if (i === currentIndex) {
-            item.classList.add('active');
-        }
-    }
+    document.querySelectorAll('.grid-item').forEach((item, i) => {
+        item.classList.remove('active');
+        if (i === currentIndex) item.classList.add('active');
+    });
 }
 
-// --- 9. ĐỒNG HỒ ĐẾM NGƯỢC ---
 function startTimer() {
+    clearInterval(timerInterval);
     timerInterval = setInterval(() => {
         timeLeft--;
         let min = Math.floor(timeLeft / 60);
         let sec = timeLeft % 60;
-        document.getElementById('timer').innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
-        
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            alert("Hết giờ làm bài!");
-            submitQuiz();
-        }
+        const timerElement = document.getElementById('timer');
+        if(timerElement) timerElement.innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        if (timeLeft <= 0) { clearInterval(timerInterval); submitQuiz(true); }
     }, 1000);
 }
 
-// --- 10. NỘP BÀI ---
-async function submitQuiz() {
+async function submitQuiz(force = false) {
+    if (isSubmitted) return;
+    if (!force && !confirm("Thầy có chắc muốn nộp bài?")) return;
+    isSubmitted = true;
     clearInterval(timerInterval);
-    let score = 0;
 
-    // Chấm điểm
-    studentAnswers.forEach(ans => {
-        const originalQuestion = selectedQuestions[ans.qIndex];
-        if (ans.selectedAnswer === originalQuestion.answer) {
-            score++;
-        }
+    let score = 0;
+    selectedQuestions.forEach((q, i) => {
+        if (studentAnswers[i] === q.answer) score++;
     });
 
     const status = score >= 25 ? "ĐẠT" : "KHÔNG ĐẠT";
+    alert(`Kết quả: ${score}/30 câu - Trạng thái: ${status}`);
     
-    alert(`Chúc mừng! Kết quả của bạn: ${score}/30 câu - Trạng thái: ${status}`);
-
-   // --- GỬI DỮ LIỆU VỀ GOOGLE SHEETS ---
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzFDyujjPPP5EezT_-4F4vs9-9B77c_dNmwdWP5TyolKzj39Im9aT0ybRauIt_R6Bev/exec';
-    
+    // Gửi dữ liệu về Google Sheets
     const payload = {
-        name: document.getElementById('studentName').value, // Gửi cho cột HOTEN
-        id: document.getElementById('studentID').value,     // Gửi cho cột KHOA
-        score: score + "/30",                               // Gửi cho cột DIEM
-        status: status                                      // Gửi cho cột KETQUA
+        name: document.getElementById('studentName').value,
+        id: document.getElementById('studentID').value,
+        score: score,
+        status: status
     };
 
-    fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    })
-    .then(() => {
-        console.log("Đã gửi dữ liệu thành công");
-    })
-    .catch(error => console.error('Lỗi gửi Sheets:', error));
+    try {
+        await fetch(WEB_APP_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(payload)
+        });
+    } catch (e) {}
+    
+    location.reload();
 }
